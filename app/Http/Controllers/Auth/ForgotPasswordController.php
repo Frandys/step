@@ -33,7 +33,6 @@ class ForgotPasswordController extends Controller
     |
     */
 
-    use SendsPasswordResetEmails;
 
     /**
      * @param Request $request
@@ -45,24 +44,21 @@ class ForgotPasswordController extends Controller
             $data = $request->input();
             $validation = \Validator::make($data, ValidationRequest::$forgot_email);
             if ($validation->fails()) {
-                $errors = $validation->messages();
-                return Redirect::back()->with('errors', $errors);
+                return ValidationResponse($validation->errors(), Config::get('message.options.VALIDATION_FAILED'));
+
             }
             //Get and check user data by email
             $userData = User::GetUserByMail($data['email']);
-
 //Check Email Exit
             if (empty($userData) && $userData == '') {
-                Session::flash('error', Config::get('message.options.INLAVID_MAIL'));
-                return Redirect::back();
-            }
+                throw new Exception(Config::get('message.options.INLAVID_MAIL'));
+             }
 //Check User Activation
             $user = \Sentinel::findById($userData->id);
             $activation = \Activation::exists($user);
 
             if (!empty($activation) && $activation != '') {
-                Session::flash('error', Config::get('message.options.USER_NOT_ACTIVATE'));
-                return Redirect::back();
+                throw new Exception(Config::get('message.options.USER_NOT_ACTIVATE'));
             }
             $user_sentinal = \Sentinel::findById($userData->id);
 
@@ -83,13 +79,11 @@ class ForgotPasswordController extends Controller
             $mailData = str_replace("{last_name}", $last_name, $mailData);
             $content = str_replace("{button}", '  <a href="' . $baseUrl . '" type="button" class="btn btn-primary">Click Here</a>', $mailData);
 
-            Mail::to('gurinder.singh@triusmail.com')->send(new \App\Mail\ForgetMail($content));
-            Session::flash('success', Config::get('message.options.MAIL_LINK'));
-
-            return Redirect::back();
+            Mail::to($data['email'])->send(new \App\Mail\ForgetMail($content));
+             throw new Exception(Config::get('message.options.MAIL_LINK'));
 
         } catch (Exception $ex) {
-            return View::make('errors.exception')->with('Message', $ex->getMessage());
+            return FailResponse($ex->getMessage(), $ex->getCode());
         }
     }
 
