@@ -11,9 +11,16 @@ class ValidationRequest extends FormRequest
      *
      * @return bool
      */
+    public static $register = array(
+        'email' => 'email|unique:users,email',
+        'password' => 'min:6|max:32',
+        'first_name' => 'required|min:2|max:32',
+        'last_name' => 'min:2|max:32',
+    );
+
     public static $login = array(
-        'email' => 'required|email|max:255',
-        'password' => 'required|min:6',
+        'email' => 'nullable|email',
+        'password' => 'required|min:6|max:32',
     );
 
     public static $forgot_email = array(

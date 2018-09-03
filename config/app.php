@@ -177,7 +177,10 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         Yajra\DataTables\DataTablesServiceProvider::class,
-        Cartalyst\Sentinel\Laravel\SentinelServiceProvider::class
+        Cartalyst\Sentinel\Laravel\SentinelServiceProvider::class,
+        Laravel\Passport\PassportServiceProvider::class
+
+
     ],
 
     /*

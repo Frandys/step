@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateEducationsTable extends Migration
+class CreateMerchantCouponsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,16 @@ class CreateEducationsTable extends Migration
      */
     public function up()
     {
-        Schema::create('educations', function (Blueprint $table) {
+        Schema::create('merchant_coupons', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->string('title', 255)->nullable();
-            $table->string('university', 255)->nullable();
-            $table->string('complete', 255)->nullable();
-            $table->timestamps();
+            $table->string('name','255');
+            $table->float('price');
+            $table->integer('valid_date');
+            $table->string('number','255');
+            $table->integer('updated_at');
+            $table->integer('created_at');
         });
     }
 
@@ -31,6 +33,6 @@ class CreateEducationsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('educations');
+        Schema::dropIfExists('merchant_coupons');
     }
 }
