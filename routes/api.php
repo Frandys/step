@@ -25,6 +25,7 @@ Route::group(['namespace' => 'Apis'], function () {
 
 
 Route::group(['middleware' => 'auth:api', 'namespace' => 'Apis'], function () {
+    Route::post('user_meta_add', 'UserController@UserMetaAdd')->name('UserMetaAdd');
     Route::post('changePassword', 'UserController@changePassword')->name('changePassword');
     Route::get('user_by_id', 'UserController@UserByid')->name('UserByid');
     Route::resource('user', 'UserController');

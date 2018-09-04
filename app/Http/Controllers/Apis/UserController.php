@@ -212,6 +212,30 @@ class UserController extends Controller
         return SuccessResponse($usersMeta, Config::get('message.options.SUCESS'));
 
     }
+
+    public function UserMetaAdd(Request $request) {
+        try {
+            $data = $request->input();
+
+            $validation = \Validator::make($data, ValidationRequest::$userMetA);
+
+            if ($validation->fails()) {
+                return ValidationResponse($validation->errors(), Config::get('message.options.VALIDATION_FAILED'));
+            }
+          $user =  User::find(\Auth::user()->id);
+            $user_meta = new UserMeta;
+            $user_meta->age = $data['age'];
+            $user_meta->gender =  $data['gender'];
+            $user_meta->height =  $data['height'];
+            $user_meta->weight =  $data['weight'];
+            $user_meta->foot_size =  $data['foot_size'];
+            $user->UserMeta()->save($user_meta);
+            return SuccessResponse($user_meta, Config::get('message.options.SUCESS'));
+        } catch (Exception $ex) {
+            return FailResponse($ex->getMessage(), $ex->getCode());
+        }
+    }
+
     /**
      * Show the form for creating a new resource.
      *

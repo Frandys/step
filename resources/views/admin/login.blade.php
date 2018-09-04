@@ -1,32 +1,63 @@
-@extends ('layouts.plane')
-@section ('body')
-<div class="container">
-        <div class="row">
-            <div class="col-md-4 col-md-offset-4">
-            <br /><br /><br />
-               @section ('login_panel_title','Please Sign In')
-               @section ('login_panel_body')
-                        <form role="form">
-                            <fieldset>
-                                <div class="form-group">
-                                    <input class="form-control" placeholder="E-mail" name="email" type="email" autofocus>
-                                </div>
-                                <div class="form-group">
-                                    <input class="form-control" placeholder="Password" name="password" type="password" value="">
-                                </div>
-                                <div class="checkbox">
-                                    <label>
-                                        <input name="remember" type="checkbox" value="Remember Me">Remember Me
-                                    </label>
-                                </div>
-                                <!-- Change this to a button or input when using this as a form -->
-                                <a href="{{ url ('') }}" class="btn btn-lg btn-success btn-block">Login</a>
-                            </fieldset>
-                        </form>
-                    
-                @endsection
-                @include('widgets.panel', array('as'=>'login', 'header'=>true))
-            </div>
-        </div>
-    </div>
-@stop
+<!doctype html>
+<html lang="en">
+<head>
+<title>Login</title>
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="css/bootstrap.css" >
+<!-- Material Design Bootstrap -->
+<link href="css/mdb.min.css" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/responsive.css">
+<link rel="stylesheet" href="css/all.css">
+<link rel="stylesheet" href="css/animate.css">
+<link rel="stylesheet" href="owlcarousel/owl.carousel.min.css">
+<link rel="stylesheet" href="owlcarousel/owl.theme.default.min.css">
+</head>
+<body>
+
+<section class="form-page">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-6">
+				<div class="form-wrap">
+					<img src="images/steps.png" class="img-fluid logo"/>
+					<h2 class="text-center mb-3">Sign In</h2>
+					<!-- Default form login -->
+					<form class="text-center">
+					
+						<div class="form-group email">
+						<!-- Email -->
+							<input type="email" id="defaultLoginFormEmail" class="form-control " placeholder="E-mail">
+						</div>
+						<!-- Password -->
+						<div class="form-group password">
+							<input type="password" id="defaultLoginFormPassword" class="form-control " placeholder="Password">
+						</div>
+						<div class="d-flex justify-content-end">
+							<div>
+								<!-- Forgot password -->
+								<a href="">Forgot password?</a>
+							</div>
+						</div>
+						<!-- Sign in button -->
+						<button class="btn btn-info btn-block mt-2" type="submit">Sign in</button>
+					</form>
+					<!-- Default form login -->
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<script src="js/jquery-3.3.1.min.js" ></script>
+<script src="js/popper.min.js"></script>
+<script src="js/bootstrap.js"></script>
+<!-- MDB core JavaScript -->
+<script type="text/javascript" src="js/mdb.min.js"></script>
+<script src="owlcarousel/owl.carousel.js"></script>
+<script src="js/numscroller-1.0.js"></script>
+<script src="js/script.js"></script>
+</body>
+</html>

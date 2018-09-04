@@ -2,21 +2,10 @@
 
 namespace App\Http\Controllers\Auth;
 
-use Activation;
-use App\Http\Controllers\Controller;
-use Cartalyst\Sentinel\Sentinel;
-use Illuminate\Foundation\Auth\AuthenticatesUsers;
-use Illuminate\Http\Request;
-use Exception;
-use Cartalyst\Sentinel\Users\UserInterface;
 use App\User;
-use Illuminate\Support\Facades\Config;
-use Illuminate\Support\Facades\Session;
-use Illuminate\Support\Facades\Redirect;
-use Cartalyst\Sentinel\Laravel\Facades\Reminder;
-use App\Http\Requests\ValidationRequest;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
-use View;
+use Illuminate\Foundation\Auth\RegistersUsers;
 
 class RegisterController extends Controller
 {
@@ -30,47 +19,15 @@ class RegisterController extends Controller
     | provide this functionality without requiring any additional code.
     |
     */
-//    public function showRegistrationForm()
-//    {
-//        return view('auth.register');
-//    }
+
+    use RegistersUsers;
+
     /**
-     * Create a new user instance after a valid registration.
+     * Where to redirect users after registration.
      *
-     * @param  array $data
-     * @return \App\User
+     * @var string
      */
-    public function register(Request $request)
-    {
-        try {
-            $data = $request->input();
-
-            $validation = Validator::make($data, ValidationRequest::$register);
-            if ($validation->fails()) {
-                 return ValidationResponse($validation->errors(), Config::get('message.options.VALIDATION_FAILED'));
-            }
-
-            $credential = [
-                'email' => $data['email'],
-                'password' => $data['password'],
-                'first_name' => $data['first_name'],
-                'last_name' => $data['last_name'],
-             ];
-
-            $user = \Sentinel::registerAndActivate($credential);
-
-            if (!empty($user)) {
-                $role = \Sentinel::findRoleByName('marchant');
-                $role->users()->attach($user);
-                $userGet = User::find($user->id);
-                $success['token'] = $userGet->createToken('step')->accessToken;
-                $success['name'] = $userGet->first_name;
-                return SuccessResponse($success, Config::get('message.options.REGISTERED_SUCESS'));
-            }
-        } catch (Exception $ex) {
-            return FailResponse($ex->getMessage(), $ex->getCode());
-        }
-    }
+    protected $redirectTo = '/home';
 
     /**
      * Create a new controller instance.
@@ -80,5 +37,35 @@ class RegisterController extends Controller
     public function __construct()
     {
         $this->middleware('guest');
+    }
+
+    /**
+     * Get a validator for an incoming registration request.
+     *
+     * @param  array  $data
+     * @return \Illuminate\Contracts\Validation\Validator
+     */
+    protected function validator(array $data)
+    {
+        return Validator::make($data, [
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:users',
+            'password' => 'required|string|min:6|confirmed',
+        ]);
+    }
+
+    /**
+     * Create a new user instance after a valid registration.
+     *
+     * @param  array  $data
+     * @return \App\User
+     */
+    protected function create(array $data)
+    {
+        return User::create([
+            'name' => $data['name'],
+            'email' => $data['email'],
+            'password' => bcrypt($data['password']),
+        ]);
     }
 }

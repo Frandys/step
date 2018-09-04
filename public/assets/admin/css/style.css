@@ -1,0 +1,501 @@
+@font-face {
+    font-family: 'sf';
+    src: url('../fonts/SF-UI-Display-Bold.otf') format('opentype');
+    font-weight: bold;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'sf';
+    src: url('../fonts/SF-UI-Display-Regular.otf') format('opentype');
+    font-weight: regular;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'sf';
+    src: url('../fonts/SF-UI-Display-Semibold.otf') format('opentype');
+    font-weight: 500;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'sf';
+    src: url('../fonts/SF-UI-Display-Thin.otf') format('opentype');
+    font-weight: 300;
+    font-style: normal;
+}
+.form-page {
+    background: url(../images/background-form.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+}
+.form-page .form-wrap {
+    min-height: 97vh;
+    justify-content: center;
+    display: flex;
+    align-items: baseline;
+    flex-direction: column;
+    max-width: 320px;
+    text-align: center;
+    background-image: url(../images/paw.png);
+    background-size: 79%;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.form-page .form-wrap form {
+    max-width: 100%;
+    width: 100%;
+}
+.form-page .form-wrap form .form-group .form-control {
+    border-radius: 0;
+    border: none;
+    border-bottom: 1px solid #dedede;
+    box-shadow: none;
+    padding: 0.375rem 1.75rem 0.375rem 0.75rem;
+}
+.form-page .form-wrap a {
+    color: #01b6ad;
+    font-weight: 400;
+    font-size: 13px;
+}
+.form-page .form-wrap img.logo {
+    margin: 0 auto 1rem;
+    display: block;
+}
+
+.form-page .form-wrap h2 {
+    width: 100%;
+    font-weight: 500;
+    color: #00b6ad;
+}
+.form-page .form-wrap .btn {
+    border: 1px solid #00b6ad;
+    background: transparent !important;
+    color: #00b6ad !important;
+    box-shadow: none;
+    font-size: 16px;
+    text-transform: capitalize;
+    border-radius: 10px;
+}
+.form-page .form-wrap .btn:focus,.form-page .form-wrap .btn:active {
+    background: transparent !important;
+}
+
+.form-page .form-wrap .form-group::after {
+    content: '';
+    padding: 10px 16px;
+    position: absolute;
+    right: 0;
+    background-repeat: no-repeat !important;
+    top: 9px;
+    background-size: contain !important;
+    background-position: right !important;
+}
+
+.form-page .form-wrap .form-group.email::after {
+    background: url(../images/email.png);
+}
+.form-page .form-wrap .form-group.password::after {
+    background: url(../images/password.png);
+}
+
+.form-page .form-wrap .form-group {
+    position: relative;
+}
+
+
+
+/***Dashboard Page***/
+
+.dashboard-page .container-fluid {
+    padding: 0;
+}
+.dashboard-page .menu-wrap {
+    padding: 15px;
+}
+.dashboard-page .menu-wrap .logo-wrap img {
+    width: 100%;
+    max-width: 135px;
+}
+.dashboard-page .menu-wrap .logo-wrap {
+    text-align: center;
+}
+.dashboard-page .menu-wrap .nav .nav-item a.active,.dashboard-page .menu-wrap .nav .nav-item a:hover {
+    background: #00b6ad;
+    color: #fff;
+}
+.dashboard-page .menu-wrap .nav .nav-item .nav-link {
+    border-radius: 10px;
+    padding: 0.5rem 1.3rem;
+    color: #6d6a6a;
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    line-height: 16px;
+    margin: 0 0 0.4rem 0;
+}
+.dashboard-page .menu-wrap .nav .nav-item .nav-link img {
+    height: auto;
+    margin: 0 0.5rem 0 0;
+    width: 40px;
+}
+
+.dashboard-page .menu-wrap .nav .nav-item a.active .blck, .dashboard-page .menu-wrap .nav .nav-item a:hover .blck {
+    display: none;
+}
+.dashboard-page .menu-wrap .nav .nav-item a.active .whte, .dashboard-page .menu-wrap .nav .nav-item a:hover .whte {
+    display: block;
+}
+
+.dashboard-page .menu-wrap .nav .nav-item a .blck, .dashboard-page .menu-wrap .nav .nav-item a .blck {
+    display: block;
+}
+.dashboard-page .menu-wrap .nav .nav-item a .whte, .dashboard-page .menu-wrap .nav .nav-item a .whte {
+    display: none;
+}
+.dashboard-page .admin-wrap {
+    min-height: 100vh;
+    background-image: url(../images/bg.png);
+    padding: 20px;
+    background-size: cover;
+}
+.dashboard-page .admin-wrap .top-bar .heading-wrap h2 {
+    margin: 0;
+    font-size: 35px;
+    font-weight: 600;
+    color: #fff;
+}
+.dashboard-page .admin-wrap .top-bar .dashtop {
+    float: right;
+    margin-top: 10px;
+}
+.dashboard-page .admin-wrap .top-bar .dashtop .btn {
+    background: transparent !important;
+    box-shadow: none;
+    padding: 0 5px;
+    text-transform: capitalize;
+    margin: 0 3px;
+    font-size: 13px;
+    min-width: 131px;
+    text-align: right;
+}
+.dashboard-page .admin-wrap .top-bar .dashtop .btn::after {
+	display:none;
+}
+.dashboard-page .admin-wrap .top-bar .dashtop .btn img {
+    width: 35px;
+}
+.dashboard-page .admin-wrap .top-bar .dashtop .btn span.name {
+    margin: 0 5px 0 0;
+}
+.dashboard-page .admin-wrap .diash-wrap-white {
+    padding: 20px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0px 20px rgba(0,0,0,.12);
+}
+.in-shadow {
+    box-shadow: 0 0px 20px rgba(0,0,0,.12);
+}
+.dashboard-page .admin-wrap .trending-list .text-wrap {
+    padding: 15px;
+    background: #fff;
+    border-radius: 8px;
+}
+.dashboard-page .admin-wrap .trending-list .text-wrap .head-wrap {
+    border-bottom: 1px solid #4e4a4a;
+    font-size: 16px;
+    text-align: center;
+    margin: 0 0 0.4rem 0;
+}
+.dashboard-page .admin-wrap .trending-list .text-wrap .head-wrap h4 {
+    font-weight: 500;
+    font-size: 15px;
+    color: #3e3d3d;
+    margin: 0.2rem 0 0.5rem 0;
+}
+.dashboard-page .admin-wrap .trending-list .text-wrap .data p {
+    margin: 0;
+    font-size: 14px;
+}
+.dashboard-page .admin-wrap .trending-list .text-wrap .data {
+    padding: 3px 2px;
+}
+.dashboard-page .admin-wrap .top-bar .dashtop .btn span.count {
+    position: absolute;
+    background: #fff;
+    color: #00b6ad;
+    font-size: 10px;
+    width: 13px;
+    height: 13px;
+    border-radius: 20px;
+    line-height: 12px;
+    right: 7px;
+    text-align: center;
+    top: 0;
+}
+.dashboard-page .admin-wrap .top-bar .dashtop .notif .btn {
+    width: auto !important;
+    min-width: auto;
+    position: relative;
+}
+.dashboard-page .admin-wrap .dash-top h3.small-head {
+    font-weight: 600;
+    color: #b5b5b5;
+    float: left;
+    margin: 0 10% 0 0;
+}
+.dashboard-page .admin-wrap .dash-top .text-right p {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 400;
+}
+.dashboard-page .admin-wrap .dash-top .text-right p span {
+    color: #00b6ad;
+}
+.dashboard-page .admin-wrap  .row.trending {
+    margin-left: -5px;
+    margin-right: -5px;
+}
+
+.dashboard-page .admin-wrap .row.trending .trending-list {
+    padding: 0 5px;
+}
+
+
+
+/***Dashboard Ends Here***/
+
+
+
+
+/********************* Manage-user*************/
+
+
+
+/* Table css Start */
+a.del
+{
+    background:#d9534f;
+    border-radius: 2px; 
+    width: 35px;
+    height:28px; 
+    padding-left:12px;
+    line-height:10px;
+}
+
+a.edit
+{
+    padding-left:10px;
+    background:#337ab7;
+    color:#fff;
+    border-radius:2px;
+    border:none;
+}
+
+/**sidebar-nav**/
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #fff;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 30px;
+    box-shadow: 0 0px 20px rgba(0,0,0,.22);
+}
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+.sidenav a:hover {
+    color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 15px;
+    font-size: 36px;
+    margin-left: 0;
+    padding: 0;
+    height: 30px;
+    line-height: 35px;
+}
+.dashboard-page span.openbtn {
+    font-size: 30px;
+    cursor: pointer;
+    padding: 0 0 0 10px;
+    margin: 2rem 0 0 0;
+}
+.dashboard-page  .logo-wrap-side {
+    padding: 0 15px 0 0;
+}
+.dashboard-page .logo-wrap-side img {
+    width: 100px;
+}
+.dashboard-page .side-nav-menu {
+    padding: 10px 0;
+}
+.dashboard-page .admin-wrap .top-bar .dashtop .col {
+    width: auto;
+}
+.dashboard-page .admin-wrap .dash-top .search {
+    float: left;
+    margin: 0;
+}
+.dashboard-page .admin-wrap .dash-top .search input.form-control {
+    max-width: 400px;
+    width: 400px;
+    border-radius: 20px;
+    box-shadow: none;
+}
+.dashboard-page .admin-wrap .dash-table a.block,.dashboard-page .admin-wrap .dash-table a.view {
+    border-bottom: 1px solid;
+    margin: 0 15px 0 0;
+}
+.dashboard-page .admin-wrap .dash-table a.block{
+	color: #d40000;
+}
+.dashboard-page .admin-wrap .dash-table a.view {
+	color: #00b6ad;
+}
+.dashboard-page .admin-wrap .diash-wrap-white .dash-table {
+    border-radius: 10px;
+}
+.dashboard-page .admin-wrap .diash-wrap-white .text-right .link.block-link {
+    border: none;
+    background: transparent;
+    border-bottom: 1px solid;
+    color: #d40000;
+    padding: 0;
+    box-shadow: none;
+}
+.dashboard-page .admin-wrap .diash-wrap-white .profile-name {
+    padding: 20px;
+    background: #fff;
+    border-radius: 10px;
+    margin: 0 0 1rem 0;
+}
+.dashboard-page .admin-wrap .diash-wrap-white .profile-name .img-wrap {
+    width: 110px;
+    height: 110px;
+    display: inline-flex;
+    border-radius: 50%;
+    overflow: hidden;
+}
+.dashboard-page .admin-wrap .diash-wrap-white .profile-name .text-wrap p {
+    margin: 0;
+    font-size: 15px;
+}
+.dashboard-page .admin-wrap .diash-wrap-white .profile-name .text-wrap strong {
+    font-weight: 600;
+    font-size: 15px;
+}
+.dashboard-page .admin-wrap .diash-wrap-white .profile-name .text-wrap .row.no-gutters {
+    margin: 0 0 0.6rem 0;
+}
+.dashboard-page .admin-wrap .diash-wrap-white .profile-name .text-wrap .row.no-gutters:last-of-type {
+    margin: 0;
+}
+.dashboard-page .admin-wrap .diash-wrap-white .profile-name .text-wrap button.link {
+    color: #00b6ad;
+}
+.dashboard-page .admin-wrap .diash-wrap-white .target {
+    margin: 0 0 1rem 0;
+    font-size: 14px;
+    padding: 15px 25px;
+}
+.dashboard-page .admin-wrap .diash-wrap-white .target p {
+    margin: 0;
+}
+.dashboard-page .admin-wrap .diash-wrap-white .target .timer strong {
+    color: #00b6ad;
+    font-weight: 500;
+}
+.dashboard-page .admin-wrap .diash-wrap-white .target strong {
+    font-weight: 500;
+}
+.dashboard-page .admin-wrap .diash-wrap-white .coupon .coupon-wrap {
+    padding: 25px;
+    height: 100%;
+}
+.dashboard-page .admin-wrap .diash-wrap-white .coupon .coupon-wrap h4 {
+    font-size: 21px;
+    font-weight: 600;
+    color: #636363;
+}
+.dashboard-page .admin-wrap .diash-wrap-white .coupon .coupon-wrap .coupon-wrap-box {
+    margin: 0 0 1rem 0;
+}
+.dashboard-page .admin-wrap .diash-wrap-white .coupon .coupon-wrap .coupon-wrap-box p {
+    margin: 0;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 17px;
+}
+.dashboard-page .admin-wrap .diash-wrap-white .coupon .coupon-wrap .coupon-wrap-box  p.sps {
+    color: #636363;
+}
+.dashboard-page .admin-wrap .diash-wrap-white .coupon .coupon-wrap .coupon-wrap-box  .pending {
+    color: #d40000;
+}
+
+.maiilModal .modal-header{
+    border: none;
+    padding: 1.5rem 2rem 0 2rem;
+}
+.maiilModal .modal-body{
+	padding: 2rem;
+	border: none;
+}
+.maiilModal .modal-header h5 {
+    font-weight: 600;
+    color: #b5b5b5;
+    font-size: 1.7rem;
+}
+.maiilModal .modal-body label {
+    font-weight: 400;
+    color: #565656 !important;
+}
+.maiilModal .modal-body .form-control {
+    border: none;
+    border-bottom: 2px solid #dedede !important;
+    box-shadow: none !important;
+}
+.maiilModal .modal-body form button {
+    background: transparent;
+    box-shadow: none;
+    color: #00b6ad;
+    border: 1px solid #00b6ad;
+    font-weight: 500;
+    border-radius: 20px;
+    padding: 13px 60px;
+    text-transform: capitalize;
+    font-size: 16px;
+}
+.maiilModal .modal-body form button:focus {
+    box-shadow: none;
+}
+.maiilModal .modal-header button.close {
+    padding: 0;
+    margin: 0;
+    color: #00b6ad;
+    opacity: 1;
+    outline: none;
+    border: none;
+    box-shadow: none;
+}
+.form-page .form-wrap p.text-center {
+    width: 56%;
+    margin: 0 auto;
+    font-size: 0.9rem;
+}

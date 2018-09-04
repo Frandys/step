@@ -17,7 +17,7 @@ class CreateUserMetasTable extends Migration
             $table->increments('id');
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->integer('age')->nullable();
+            $table->string('age',255)->nullable();
             $table->enum('gender', ['0', '1'])->comment('0=male,1=female')->nullable();
             $table->string('height','50')->nullable();
             $table->string('weight','50')->nullable();

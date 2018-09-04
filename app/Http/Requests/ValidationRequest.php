@@ -39,6 +39,14 @@ class ValidationRequest extends FormRequest
         'confirm_password' => 'required|same:password|min:6',
     ];
 
+    public static $userMetA = [
+        'age' => 'required',
+        'gender' => 'required',
+        'height' => 'required',
+        'weight' => 'required',
+        'foot_size' => 'required',
+    ];
+
     public function authorize()
     {
         return false;

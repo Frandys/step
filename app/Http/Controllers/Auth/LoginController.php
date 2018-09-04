@@ -43,63 +43,49 @@ class LoginController extends Controller
     {
         try {
             $data = $request->input();
-            if ($data['fb_id'] == '') {
-                $validation = Validator::make($data, ValidationRequest::$login);
-                if ($validation->fails()) {
-                    return ValidationResponse($validation->errors(), Config::get('message.options.VALIDATION_FAILED'));
-                }
-                //Get and check user data by email
-                $userData = User::GetUserByMail($data['email']);
-                //Check Email Exit
-                if (empty($userData)) {
-                    throw new Exception(Config::get('message.options.INLAVID_MAIL'));
-                }
+            $validation = Validator::make($data, ValidationRequest::$login);
+            if ($validation->fails()) {
+                $errors = $validation->messages();
+                return Redirect::back()->with('errors', $errors);
+            }
+            //Get and check user data by email
+            $userData = User::GetUserByMail($data['email']);
+            //Check Email Exit
+            if (empty($userData)) {
+                Session::flash('error', Config::get('message.options.INLAVID_MAIL'));
+                return Redirect::back();
+            }
 //Check User Activation
-                $user = \Sentinel::findById($userData->id);
-                $activation = Activation::exists($user);
-                if (!empty($activation) && $activation != '') {
 
-                }
+            $user = \Sentinel::findById($userData->id);
+            $activation = Activation::exists($user);
+            if (!empty($activation) && $activation != '') {
+                Session::flash('error', Config::get('message.options.USER_NOT_ACTIVATE'));
+                return Redirect::back();
+            }
 //Check authenticate user
-                $authenticate_user = \Sentinel::authenticateAndRemember($request->all());
-                if (empty($authenticate_user) && $authenticate_user == '') {
-                    throw new Exception(Config::get('message.options.LOGIN_INVALID'));
+            $authenticate_user = \Sentinel::authenticateAndRemember($request->all());
+            if (empty($authenticate_user) && $authenticate_user == '') {
+                Session::flash('error', Config::get('message.options.LOGIN_INVALID'));
+                return Redirect::back();
+            }
 
+//Check the roles of users
+            if ($user = \Sentinel::check()) {
+                \Sentinel::login($user, true);
+                if (\Sentinel::getUser()->roles()->first()->slug == 'admin') {
+                    return Redirect::to('/admin');
                 }
-                $success['token'] = $userData->createToken('step')->accessToken;
-                return SuccessResponse($success, Config::get('message.options.SUCESS'));
             } else {
-                $userGet = User::where('fb_id', $data['fb_id'])->first();
-                if (empty(json_decode(json_encode($userGet)))) {
-
-                    $credential = array(
-                        'email' => $data['email'],
-                        'password' => bcrypt(str_random(18)),
-                        'first_name' => $data['first_name'],
-                        'last_name' =>  $data['last_name'],
-                        'fb_id'=>$data['fb_id'],
-                    );
-                    $user = \Sentinel::registerAndActivate($credential);
-
-                    if (!empty($user)) {
-                        $role = \Sentinel::findRoleByName('user');
-                        $role->users()->attach($user);
-                        $userGet = User::find($user->id);
-                        $success['token'] = $userGet->createToken('step')->accessToken;
-                       return SuccessResponse($success, Config::get('message.options.SUCESS'));
-                    }
-                } else {
-                     $success['token'] = $userGet->createToken('step')->accessToken;
-                    return SuccessResponse($success, Config::get('message.options.SUCESS'));
-                }
+                Session::flash('error', Config::get('message.options.LOGIN_INVALID'));
+                return Redirect::back();
             }
         } catch (Exception $ex) {
-            return FailResponse($ex->getMessage(), $ex->getCode());
+            return View::make('errors.exception')->with('Message', $ex->getMessage());
         }
     }
 
-    public function logout(Request $request)
-    {
+    public function logout(Request $request) {
         try {
             \Sentinel::logout();
             return Redirect::to('/login');

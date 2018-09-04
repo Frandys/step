@@ -1,0 +1,63 @@
+ /******Responsive starts Here******/
+@media screen and (width:1280px){
+
+}
+
+
+@media screen and (width:1024px){
+
+}
+
+@media screen and (max-width:992px){
+.form-page {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: -190px 0px;
+}
+.form-page .form-wrap {
+    max-width: 61%;
+    background-image: url(../images/paw.png);
+    background-size: 79%;
+    margin: 0 auto;
+}
+
+}
+@media screen and (max-width:767px){
+.dashboard-page .admin-wrap .top-bar .heading-wrap h2 {
+    font-size: 20px;
+}
+.form-page .form-wrap {
+    background-size: 79%;	
+}
+.dashboard-page .admin-wrap .dash-top h3.small-head {
+    font-size: 16px;
+}
+.dashboard-page .admin-wrap .top-bar .dashtop {
+    margin-top: 0;
+}
+.dashboard-page .admin-wrap .diash-wrap-white {
+    padding: 15px;
+    border-radius: 5px;
+}
+.dashboard-page .admin-wrap .dash-top .text-right p {
+    font-size: 13px;
+}
+.dashboard-page .admin-wrap .trending-list .text-wrap {
+    margin: 0 0 0.7rem 0;
+}
+
+}
+/*********Small***************/
+/*********Mobiles*************/
+/*********Starts**************/
+/*********Here****************/
+@media screen and (max-width:576px){
+
+
+}
+
+@media screen and (max-width:375px){
+
+
+}
+/******Responsive ends Here******/

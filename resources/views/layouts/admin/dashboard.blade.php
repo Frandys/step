@@ -1,374 +1,237 @@
 @extends('layouts.admin.plane')
-
 @section('body')
-    <div id="wrapper">
+        <!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <!-- Material Design Bootstrap -->
+    <link href="css/mdb.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/all.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="owlcarousel/owl.carousel.min.css">
+    <link rel="stylesheet" href="owlcarousel/owl.theme.default.min.css">
+</head>
+<body>
+<section class="dashboard-page">
+    <div class="container-fluid">
+        <div class="d-sm-block d-md-block d-block d-lg-none">
+            <div id="mySidenav" class="sidenav">
+                <a href="javascript:void(0)" class="closebtn">&times;</a>
+                <div class="menu-wrap ">
 
-        <!-- Navigation -->
-        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="{{ url ('admin') }}">Tutorsandtrainersonline</a>
-            </div>
-            <!-- /.navbar-header -->
-
-            <ul class="nav navbar-top-links navbar-right">
-                {{--<li class="dropdown">--}}
-                    {{--<a class="dropdown-toggle" data-toggle="dropdown" href="#">--}}
-                        {{--<i class="fa fa-envelope fa-fw"></i> <i class="fa fa-caret-down"></i>--}}
-                    {{--</a>--}}
-                    {{--<ul class="dropdown-menu dropdown-messages">--}}
-                        {{--<li>--}}
-                            {{--<a href="#">--}}
-                                {{--<div>--}}
-                                    {{--<strong>John Smith</strong>--}}
-                                    {{--<span class="pull-right text-muted">--}}
-                                        {{--<em>Yesterday</em>--}}
-                                    {{--</span>--}}
-                                {{--</div>--}}
-                                {{--<div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...--}}
-                                {{--</div>--}}
-                            {{--</a>--}}
-                        {{--</li>--}}
-                        {{--<li class="divider"></li>--}}
-                        {{--<li>--}}
-                            {{--<a href="#">--}}
-                                {{--<div>--}}
-                                    {{--<strong>John Smith</strong>--}}
-                                    {{--<span class="pull-right text-muted">--}}
-                                        {{--<em>Yesterday</em>--}}
-                                    {{--</span>--}}
-                                {{--</div>--}}
-                                {{--<div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...--}}
-                                {{--</div>--}}
-                            {{--</a>--}}
-                        {{--</li>--}}
-                        {{--<li class="divider"></li>--}}
-                        {{--<li>--}}
-                            {{--<a href="#">--}}
-                                {{--<div>--}}
-                                    {{--<strong>John Smith</strong>--}}
-                                    {{--<span class="pull-right text-muted">--}}
-                                        {{--<em>Yesterday</em>--}}
-                                    {{--</span>--}}
-                                {{--</div>--}}
-                                {{--<div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...--}}
-                                {{--</div>--}}
-                            {{--</a>--}}
-                        {{--</li>--}}
-                        {{--<li class="divider"></li>--}}
-                        {{--<li>--}}
-                            {{--<a class="text-center" href="#">--}}
-                                {{--<strong>Read All Messages</strong>--}}
-                                {{--<i class="fa fa-angle-right"></i>--}}
-                            {{--</a>--}}
-                        {{--</li>--}}
-                    {{--</ul>--}}
-                    {{--<!-- /.dropdown-messages -->--}}
-                {{--</li>--}}
-                <!-- /.dropdown -->
-                {{--<li class="dropdown">--}}
-                    {{--<a class="dropdown-toggle" data-toggle="dropdown" href="#">--}}
-                        {{--<i class="fa fa-tasks fa-fw"></i> <i class="fa fa-caret-down"></i>--}}
-                    {{--</a>--}}
-                    {{--<ul class="dropdown-menu dropdown-tasks">--}}
-                        {{--<li>--}}
-                            {{--<a href="#">--}}
-                                {{--<div>--}}
-                                    {{--<p>--}}
-                                        {{--<strong>Task 1</strong>--}}
-                                        {{--<span class="pull-right text-muted">40% Complete</span>--}}
-                                    {{--</p>--}}
-
-                                    {{--<div>--}}
-                                        {{--@include('widgets.progress', array('animated'=> true, 'class'=>'success', 'value'=>'40'))--}}
-                                        {{--<span class="sr-only">40% Complete (success)</span>--}}
-                                    {{--</div>--}}
-
-                                {{--</div>--}}
-                            {{--</a>--}}
-                        {{--</li>--}}
-                        {{--<li class="divider"></li>--}}
-                        {{--<li>--}}
-                            {{--<a href="#">--}}
-                                {{--<div>--}}
-                                    {{--<p>--}}
-                                        {{--<strong>Task 2</strong>--}}
-                                        {{--<span class="pull-right text-muted">20% Complete</span>--}}
-                                    {{--</p>--}}
-
-                                    {{--<div>--}}
-                                        {{--@include('widgets.progress', array('animated'=> true, 'class'=>'info', 'value'=>'20'))--}}
-                                        {{--<span class="sr-only">20% Complete</span>--}}
-                                    {{--</div>--}}
-
-                                {{--</div>--}}
-                            {{--</a>--}}
-                        {{--</li>--}}
-                        {{--<li class="divider"></li>--}}
-                        {{--<li>--}}
-                            {{--<a href="#">--}}
-                                {{--<div>--}}
-                                    {{--<p>--}}
-                                        {{--<strong>Task 3</strong>--}}
-                                        {{--<span class="pull-right text-muted">60% Complete</span>--}}
-                                    {{--</p>--}}
-
-                                    {{--<div>--}}
-                                        {{--@include('widgets.progress', array('animated'=> true, 'class'=>'warning', 'value'=>'60'))--}}
-                                        {{--<span class="sr-only">60% Complete (warning)</span>--}}
-                                    {{--</div>--}}
-
-                                {{--</div>--}}
-                            {{--</a>--}}
-                        {{--</li>--}}
-                        {{--<li class="divider"></li>--}}
-                        {{--<li>--}}
-                            {{--<a href="#">--}}
-                                {{--<div>--}}
-                                    {{--<p>--}}
-                                        {{--<strong>Task 4</strong>--}}
-                                        {{--<span class="pull-right text-muted">80% Complete</span>--}}
-                                    {{--</p>--}}
-
-                                    {{--<div>--}}
-                                        {{--@include('widgets.progress', array('animated'=> true,'class'=>'danger', 'value'=>'80'))--}}
-                                        {{--<span class="sr-only">80% Complete (danger)</span>--}}
-                                    {{--</div>--}}
-
-                                {{--</div>--}}
-                            {{--</a>--}}
-                        {{--</li>--}}
-                        {{--<li class="divider"></li>--}}
-                        {{--<li>--}}
-                            {{--<a class="text-center" href="#">--}}
-                                {{--<strong>See All Tasks</strong>--}}
-                                {{--<i class="fa fa-angle-right"></i>--}}
-                            {{--</a>--}}
-                        {{--</li>--}}
-                    {{--</ul>--}}
-                    {{--<!-- /.dropdown-tasks -->--}}
-                {{--</li>--}}
-                <!-- /.dropdown -->
-                {{--<li class="dropdown">--}}
-                    {{--<a class="dropdown-toggle" data-toggle="dropdown" href="#">--}}
-                        {{--<i class="fa fa-bell fa-fw"></i> <i class="fa fa-caret-down"></i>--}}
-                    {{--</a>--}}
-                    {{--<ul class="dropdown-menu dropdown-alerts">--}}
-                        {{--<li>--}}
-                            {{--<a href="#">--}}
-                                {{--<div>--}}
-                                    {{--<i class="fa fa-comment fa-fw"></i> New Comment--}}
-                                    {{--<span class="pull-right text-muted small">4 minutes ago</span>--}}
-                                {{--</div>--}}
-                            {{--</a>--}}
-                        {{--</li>--}}
-                        {{--<li class="divider"></li>--}}
-                        {{--<li>--}}
-                            {{--<a href="#">--}}
-                                {{--<div>--}}
-                                    {{--<i class="fa fa-twitter fa-fw"></i> 3 New Followers--}}
-                                    {{--<span class="pull-right text-muted small">12 minutes ago</span>--}}
-                                {{--</div>--}}
-                            {{--</a>--}}
-                        {{--</li>--}}
-                        {{--<li class="divider"></li>--}}
-                        {{--<li>--}}
-                            {{--<a href="#">--}}
-                                {{--<div>--}}
-                                    {{--<i class="fa fa-envelope fa-fw"></i> Message Sent--}}
-                                    {{--<span class="pull-right text-muted small">4 minutes ago</span>--}}
-                                {{--</div>--}}
-                            {{--</a>--}}
-                        {{--</li>--}}
-                        {{--<li class="divider"></li>--}}
-                        {{--<li>--}}
-                            {{--<a href="#">--}}
-                                {{--<div>--}}
-                                    {{--<i class="fa fa-tasks fa-fw"></i> New Task--}}
-                                    {{--<span class="pull-right text-muted small">4 minutes ago</span>--}}
-                                {{--</div>--}}
-                            {{--</a>--}}
-                        {{--</li>--}}
-                        {{--<li class="divider"></li>--}}
-                        {{--<li>--}}
-                            {{--<a href="#">--}}
-                                {{--<div>--}}
-                                    {{--<i class="fa fa-upload fa-fw"></i> Server Rebooted--}}
-                                    {{--<span class="pull-right text-muted small">4 minutes ago</span>--}}
-                                {{--</div>--}}
-                            {{--</a>--}}
-                        {{--</li>--}}
-                        {{--<li class="divider"></li>--}}
-                        {{--<li>--}}
-                            {{--<a class="text-center" href="#">--}}
-                                {{--<strong>See All Alerts</strong>--}}
-                                {{--<i class="fa fa-angle-right"></i>--}}
-                            {{--</a>--}}
-                        {{--</li>--}}
-                    {{--</ul>--}}
-                    {{--<!-- /.dropdown-alerts -->--}}
-                {{--</li>--}}
-                <!-- /.dropdown -->
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
-                    </a>
-                    <ul class="dropdown-menu dropdown-user">
-                        {{--<li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>--}}
-                        {{--</li>--}}
-                        <li><a href="{{ url('admin/change_password') }}"><i class="fa fa-gear fa-fw"></i> Settings</a>
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#">
+                                <img class="blck" src="{{asset('assets/admin/images/black/dash.png')}}"/>
+                                <img class="whte" src="{{asset('assets/admin/images/white/dash.png')}}"/>
+                                <span>Home</span>
+                            </a>
                         </li>
-                        <li class="divider"></li>
-                        <li><a href="{{ route('logout') }}"
-                               onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();"><i
-                                        class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <img class="blck" src="{{asset('assets/admin/images/black/manage.png')}}"/>
+                                <img class="whte" src="{{asset('assets/admin/images/white/manage.png')}}"/>
+                                <span>Manage Users</span>
+                            </a>
                         </li>
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                            {{ csrf_field() }}
-                        </form>
-                    </ul>
-                    <!-- /.dropdown-user -->
-                </li>
-                <!-- /.dropdown -->
-            </ul>
-            <!-- /.navbar-top-links -->
-
-            <div class="navbar-default sidebar" role="navigation">
-                <div class="sidebar-nav navbar-collapse">
-                    <ul class="nav" id="side-menu">
-                        {{--<li class="sidebar-search">--}}
-                            {{--<div class="input-group custom-search-form">--}}
-                                {{--<input type="text" class="form-control" placeholder="Search...">--}}
-                                {{--<span class="input-group-btn">--}}
-                                {{--<button class="btn btn-default" type="button">--}}
-                                    {{--<i class="fa fa-search"></i>--}}
-                                {{--</button>--}}
-                            {{--</span>--}}
-                            {{--</div>--}}
-                            {{--<!-- /input-group -->--}}
-                        {{--</li>--}}
-                        <li {{ (Request::is('/') ? 'class="active"' : '') }}>
-                            <a href="{{ url ('') }}"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <img class="blck" src="{{asset('assets/admin/images/black/merchant.png')}}"/>
+                                <img class="whte" src="{{asset('assets/admin/images/white/merchant.png')}}"/>
+                                <span>Manage Merchants</span>
+                            </a>
                         </li>
-
-                        <li>
-                            <a href="#"><i class="fa fa-users fa-fw"></i>Tutor<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li {{ (Request::is('*admin/tutor') ? 'class="active"' : '') }}>
-                                    <a href="{{ url ('admin/tutor') }}">Tutors View</a>
-                                </li>
-                            </ul>
-                            <!-- /.nav-second-level -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <img class="blck" src="{{asset('assets/admin/images/black/algorithm.png')}}"/>
+                                <img class="whte" src="{{asset('assets/admin/images/white/algorithm.png')}}"/>
+                                <span>Manage Step Algorithhms</span>
+                            </a>
                         </li>
-
-                        <li {{ (Request::is('*charts') ? 'class="active"' : '') }}>
-                            <a href="{{ url ('charts') }}"><i class="fa fa-bar-chart-o fa-fw"></i> Charts</a>
-                            <!-- /.nav-second-level -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <img class="blck" src="{{asset('assets/admin/images/black/marketing.png')}}"/>
+                                <img class="whte" src="{{asset('assets/admin/images/white/marketing.png')}}"/>
+                                <span>Email Marketing</span>
+                            </a>
                         </li>
-                        <li {{ (Request::is('*tables') ? 'class="active"' : '') }}>
-                            <a href="{{ url ('tables') }}"><i class="fa fa-table fa-fw"></i> Tables</a>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <img class="blck" src="{{asset('assets/admin/images/black/admin.png')}}"/>
+                                <img class="whte" src="{{asset('assets/admin/images/white/admin.png')}}"/>
+                                <span>Manage Admin Users</span>
+                            </a>
                         </li>
-                        <li {{ (Request::is('*forms') ? 'class="active"' : '') }}>
-                            <a href="{{ url ('forms') }}"><i class="fa fa-edit fa-fw"></i> Forms</a>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <img class="blck" src="{{asset('assets/admin/images/black/support.png')}}"/>
+                                <img class="whte" src="{{asset('assets/admin/images/white/support.png')}}"/>
+                                <span>Messaging Support</span>
+                            </a>
                         </li>
-
-                        <li>
-                            <a href="#"><i class="fa fa-wrench fa-fw"></i> UI Elements<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li {{ (Request::is('*panels') ? 'class="active"' : '') }}>
-                                    <a href="{{ url ('panels') }}">Panels and Collapsibles</a>
-                                </li>
-                                <li {{ (Request::is('*buttons') ? 'class="active"' : '') }}>
-                                    <a href="{{ url ('buttons' ) }}">Buttons</a>
-                                </li>
-                                <li {{ (Request::is('*notifications') ? 'class="active"' : '') }}>
-                                    <a href="{{ url('notifications') }}">Alerts</a>
-                                </li>
-                                <li {{ (Request::is('*typography') ? 'class="active"' : '') }}>
-                                    <a href="{{ url ('typography') }}">Typography</a>
-                                </li>
-                                <li {{ (Request::is('*icons') ? 'class="active"' : '') }}>
-                                    <a href="{{ url ('icons') }}"> Icons</a>
-                                </li>
-                                <li {{ (Request::is('*grid') ? 'class="active"' : '') }}>
-                                    <a href="{{ url ('grid') }}">Grid</a>
-                                </li>
-                            </ul>
-                            <!-- /.nav-second-level -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <img class="blck" src="{{asset('assets/admin/images/black/target.png')}}"/>
+                                <img class="whte" src="{{asset('assets/admin/images/white/target.png')}}"/>
+                                <span>Set Target</span>
+                            </a>
                         </li>
-                        <li>
-                            <a href="#"><i class="fa fa-sitemap fa-fw"></i> Multi-Level Dropdown<span
-                                        class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="#">Second Level Item</a>
-                                </li>
-                                <li>
-                                    <a href="#">Second Level Item</a>
-                                </li>
-                                <li>
-                                    <a href="#">Third Level <span class="fa arrow"></span></a>
-                                    <ul class="nav nav-third-level">
-                                        <li>
-                                            <a href="#">Third Level Item</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Third Level Item</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Third Level Item</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Third Level Item</a>
-                                        </li>
-                                    </ul>
-                                    <!-- /.nav-third-level -->
-                                </li>
-                            </ul>
-                            <!-- /.nav-second-level -->
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-files-o fa-fw"></i> Sample Pages<span
-                                        class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li {{ (Request::is('*blank') ? 'class="active"' : '') }}>
-                                    <a href="{{ url ('blank') }}">Blank Page</a>
-                                </li>
-                                <li>
-                                    <a href="{{ url ('login') }}">Login Page</a>
-                                </li>
-                            </ul>
-                            <!-- /.nav-second-level -->
-                        </li>
-                        <li {{ (Request::is('*documentation') ? 'class="active"' : '') }}>
-                            <a href="{{ url ('documentation') }}"><i class="fa fa-file-word-o fa-fw"></i> Documentation</a>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <img class="blck" src="{{asset('assets/admin/images/black/additional.png')}}"/>
+                                <img class="whte" src="{{asset('assets/admin/images/white/additional.png')}}"/>
+                                <span>Additional Pages</span>
+                            </a>
                         </li>
                     </ul>
                 </div>
-                <!-- /.sidebar-collapse -->
-            </div>
-            <!-- /.navbar-static-side -->
-        </nav>
 
-        <div id="page-wrapper">
-            <div class="row">
-                <div class="col-lg-12">
-                    <h1 class="page-header">@yield('page_heading')</h1>
+            </div>
+            <div class="side-nav-menu row no-gutters">
+                <div class="col">
+                    <span class="openbtn" style="font-size:30px;cursor:pointer">&#9776; </span>
                 </div>
-                <!-- /.col-lg-12 -->
-            </div>
-            <div class="row">
-                @yield('section')
 
+                <div class="col text-right">
+                    <div class="logo-wrap-side">
+                        <img src="{{asset('assets/admin/images/steps.png')}}" class="logo-img img-fluid">
+                    </div>
+                </div>
             </div>
-            <!-- /#page-wrapper -->
+        </div>
+
+
+        <div class="row no-gutters">
+            <div class="col-lg-2 d-none d-lg-block">
+                <div class="menu-wrap ">
+                    <div class="logo-wrap mb-4">
+                        <img src="{{asset('assets/admin/images/steps.png')}}" class="logo-img img-fluid">
+                    </div>
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#">
+                                <img class="blck" src="{{asset('assets/admin/images/black/dash.png')}}"/>
+                                <img class="whte" src="{{asset('assets/admin/images/white/dash.png')}}"/>
+                                <span>Home</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <img class="blck" src="{{asset('assets/admin/images/black/manage.png')}}"/>
+                                <img class="whte" src="{{asset('assets/admin/images/white/manage.png')}}"/>
+                                <span>Manage Users</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <img class="blck" src="{{asset('assets/admin/images/black/merchant.png')}}"/>
+                                <img class="whte" src="{{asset('assets/admin/images/white/merchant.png')}}"/>
+                                <span>Manage Merchants</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <img class="blck" src="{{asset('assets/admin/images/black/algorithm.png')}}"/>
+                                <img class="whte" src="{{asset('assets/admin/images/white/algorithm.png')}}"/>
+                                <span>Manage Step Algorithhms</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <img class="blck" src="{{asset('assets/admin/images/black/marketing.png')}}"/>
+                                <img class="whte" src="{{asset('assets/admin/images/white/marketing.png')}}"/>
+                                <span>Email Marketing</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <img class="blck" src="{{asset('assets/admin/images/black/admin.png')}}"/>
+                                <img class="whte" src="{{asset('assets/admin/images/white/admin.png')}}"/>
+                                <span>Manage Admin Users</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <img class="blck" src="{{asset('assets/admin/images/black/support.png')}}"/>
+                                <img class="whte" src="{{asset('assets/admin/images/white/support.png')}}"/>
+                                <span>Messaging Support</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <img class="blck" src="{{asset('assets/admin/images/black/target.png')}}"/>
+                                <img class="whte" src="{{asset('assets/admin/images/white/target.png')}}"/>
+                                <span>Set Target</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <img class="blck" src="{{asset('assets/admin/images/black/additional.png')}}"/>
+                                <img class="whte" src="{{asset('assets/admin/images/white/additional.png')}}"/>
+                                <span>Additional Pages</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-10">
+                <div class="admin-wrap">
+                    <div class="top-bar mb-4">
+                        <div class="row no-gutters">
+                            <div class="col">
+                                <div class="heading-wrap">
+                                    <h2>Dashboard</h2>
+                                </div>
+                            </div>
+                            <div class="col text-right">
+                                <div class="dashtop row no-gutters">
+                                    <div class="col">
+                                        <div class="dropdown notif">
+                                            <button type="button" class="btn btn-primary dropdown-toggle"
+                                                    data-toggle="dropdown">
+                                                <img src="{{asset('assets/images/notification.png')}}">
+                                                <span class="count">2</span>
+                                            </button>
+                                            <div class="dropdown-menu">
+                                                <a class="dropdown-item" href="#">Link 1</a>
+                                                <a class="dropdown-item" href="#">Link 2</a>
+                                                <a class="dropdown-item" href="#">Link 3</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="dropdown admin">
+                                            <button type="button" class="btn btn-primary dropdown-toggle"
+                                                    data-toggle="dropdown">
+                                                <span class="name">Admin Name</span><img src="{{asset('assets/images/admin.png')}}"
+                                                                                         class="img-fluid">
+                                            </button>
+                                            <div class="dropdown-menu">
+                                                <a class="dropdown-item" href="#">Link 1</a>
+                                                <a class="dropdown-item" href="#">Link 2</a>
+                                                <a class="dropdown-item" href="#">Link 3</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        @yield('section')
+
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
+</section>
 @stop
 
