@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Apis;
 
+use App\Model\MerchantMeta;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -14,7 +15,7 @@ class MerchantController extends Controller
      */
     public function index()
     {
-        $usersMeta = UserMeta::with(array('User' => function ($query) {
+        $usersMeta = MerchantMeta::with(array('User' => function ($query) {
             $query->select('id', 'email', 'first_name', 'last_name');
         },
         ))->get();
