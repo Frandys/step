@@ -60,7 +60,7 @@ class RegisterController extends Controller
             $user = \Sentinel::registerAndActivate($credential);
 
             if (!empty($user)) {
-                $role = \Sentinel::findRoleByName('user');
+                $role = \Sentinel::findRoleByName('marchant');
                 $role->users()->attach($user);
                 $userGet = User::find($user->id);
                 $success['token'] = $userGet->createToken('step')->accessToken;

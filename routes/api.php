@@ -13,8 +13,26 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+//Route::middleware('auth:api')->get('/user', function (Request $request) {
+//    return $request->user();
+//});
+
+Route::group(['namespace' => 'Apis'], function () {
+    Route::post('register', 'UserController@register')->name('register');
+    Route::post('login', 'UserController@login')->name('login');
+    Route::post('ForgotPassword', 'UserController@ForgotPassword')->name('ForgotPassword');
 });
 
-Auth::routes();
+
+Route::group(['middleware' => 'auth:api', 'namespace' => 'Apis'], function () {
+    Route::post('changePassword', 'UserController@changePassword')->name('changePassword');
+    Route::get('user_by_id', 'UserController@UserByid')->name('UserByid');
+    Route::resource('user', 'UserController');
+    Route::get('/body', function () {
+      return SuccessResponse(\App\Model\BodyParts::select('slug')->get(), Config::get('message.options.SUCESS'));
+    });
+    Route::get('/body/{slug}', function ($slug) {
+        return SuccessResponse(\App\Model\BodyParts::where('slug',$slug)->get(), Config::get('message.options.SUCESS'));
+    });
+    Route::resource('user', 'UserController');
+});

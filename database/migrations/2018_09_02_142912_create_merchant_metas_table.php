@@ -17,7 +17,8 @@ class CreateMerchantMetasTable extends Migration
             $table->increments('id');
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->text('address')->nullable();
+
+
             $table->string('phone','50')->nullable();
             $table->string('photo','255')->nullable();
             $table->text('discription')->nullable();

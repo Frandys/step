@@ -18,6 +18,7 @@ class ForgetMail extends Mailable
      */
     public function __construct($content)
     {
+
         $this->content = $content;
     }
 

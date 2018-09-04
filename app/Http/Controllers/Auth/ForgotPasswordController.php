@@ -78,11 +78,9 @@ class ForgotPasswordController extends Controller
             $mailData = str_replace("{first_name}", $first_name, $VendorTem->body);
             $mailData = str_replace("{last_name}", $last_name, $mailData);
             $content = str_replace("{button}", '  <a href="' . $baseUrl . '" type="button" class="btn btn-primary">Click Here</a>', $mailData);
-
             Mail::to($data['email'])->send(new \App\Mail\ForgetMail($content));
-             throw new Exception(Config::get('message.options.MAIL_LINK'));
-
-        } catch (Exception $ex) {
+            return SuccessResponse('', Config::get('message.options.MAIL_LINK'));
+         } catch (Exception $ex) {
             return FailResponse($ex->getMessage(), $ex->getCode());
         }
     }
