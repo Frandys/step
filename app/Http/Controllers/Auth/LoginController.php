@@ -32,8 +32,10 @@ class LoginController extends Controller
     |
     */
 
-    use AuthenticatesUsers;
-
+    public function showLoginForm()
+    {
+        return view('admin.login');
+    }
 
     /**
      * @param Request $request

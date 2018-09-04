@@ -33,8 +33,10 @@ class ForgotPasswordController extends Controller
     |
     */
 
-    use SendsPasswordResetEmails;
-
+    public function showLinkRequestForm()
+    {
+        return view('admin.forget');
+    }
     /**
      * @param Request $request
      * @return mixed
