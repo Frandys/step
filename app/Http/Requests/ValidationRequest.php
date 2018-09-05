@@ -40,11 +40,26 @@ class ValidationRequest extends FormRequest
     ];
 
     public static $userMetA = [
+        'first_name' => 'required|min:2|max:32',
+        'last_name' => 'min:2|max:32',
         'age' => 'required',
         'gender' => 'required',
         'height' => 'required',
         'weight' => 'required',
         'foot_size' => 'required',
+    ];
+
+    public static $userUpdat = [
+        'age' => 'required',
+        'gender' => 'required',
+        'height' => 'required',
+        'weight' => 'required',
+        'foot_size' => 'required',
+    ];
+
+    public static $ImageBase= [
+        'image' => 'required',
+
     ];
 
     public function authorize()

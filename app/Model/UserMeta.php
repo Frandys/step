@@ -14,6 +14,7 @@ class UserMeta extends Model
         'height',
         'weight',
         'foot_size',
+        'photo',
         'user_id',
     ];
 

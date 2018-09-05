@@ -95,8 +95,8 @@ class UserController extends Controller
                         'email' => $data['email'],
                         'password' => bcrypt(str_random(18)),
                         'first_name' => $data['first_name'],
-                        'last_name' =>  $data['last_name'],
-                        'fb_id'=>$data['fb_id'],
+                        'last_name' => $data['last_name'],
+                        'fb_id' => $data['fb_id'],
                     );
                     $user = \Sentinel::registerAndActivate($credential);
 
@@ -165,7 +165,8 @@ class UserController extends Controller
     }
 
 
-    public function changePassword(Request $request) {
+    public function changePassword(Request $request)
+    {
         try {
             $data = $request->input();
 
@@ -173,7 +174,7 @@ class UserController extends Controller
 
             if ($validation->fails()) {
                 return ValidationResponse($validation->errors(), Config::get('message.options.VALIDATION_FAILED'));
-             }
+            }
 
             $hasher = \Sentinel::getHasher();
 
@@ -199,21 +200,22 @@ class UserController extends Controller
         $usersMeta = UserMeta::with(array('User' => function ($query) {
             $query->select('id', 'email', 'first_name', 'last_name');
         },
-         ))->get();
+        ))->get();
         return SuccessResponse($usersMeta, Config::get('message.options.SUCESS'));
-     }
+    }
 
     public function UserByid()
     {
         $usersMeta = UserMeta::with(array('User' => function ($query) {
             $query->select('id', 'email', 'first_name', 'last_name');
         },
-        ))->where('user_id',\Auth::user()->id)->get();
+        ))->where('user_id', \Auth::user()->id)->get();
         return SuccessResponse($usersMeta, Config::get('message.options.SUCESS'));
 
     }
 
-    public function UserMetaAdd(Request $request) {
+    public function UserMetaAdd(Request $request)
+    {
         try {
             $data = $request->input();
 
@@ -222,15 +224,72 @@ class UserController extends Controller
             if ($validation->fails()) {
                 return ValidationResponse($validation->errors(), Config::get('message.options.VALIDATION_FAILED'));
             }
-          $user =  User::find(\Auth::user()->id);
+            $user = User::find(\Auth::user()->id);
             $user_meta = new UserMeta;
             $user_meta->age = $data['age'];
-            $user_meta->gender =  $data['gender'];
-            $user_meta->height =  $data['height'];
-            $user_meta->weight =  $data['weight'];
-            $user_meta->foot_size =  $data['foot_size'];
+            $user_meta->gender = $data['gender'];
+            $user_meta->height = $data['height'];
+            $user_meta->weight = $data['weight'];
+            $user_meta->foot_size = $data['foot_size'];
             $user->UserMeta()->save($user_meta);
             return SuccessResponse($user_meta, Config::get('message.options.SUCESS'));
+        } catch (Exception $ex) {
+            return FailResponse($ex->getMessage(), $ex->getCode());
+        }
+    }
+
+
+    public function UpdateProfile(Request $request)
+    {
+        try {
+            $data = $request->input();
+            $validation = \Validator::make($data, ValidationRequest::$ImageBase);
+            if ($validation->fails()) {
+                return ValidationResponse($validation->errors(), Config::get('message.options.VALIDATION_FAILED'));
+            }
+            $time = time();
+            $image_parts = explode(";base64,", $request->image);
+            $image_type_aux = explode("image/", $image_parts[0]);
+            $image_type = $image_type_aux[1];
+            $image_base64 = base64_decode($image_parts[1]);
+            $destinationPath = 'images/user/';
+            $file = $destinationPath . $time . '.png';
+            file_put_contents($file, $image_base64);
+
+            $user_meta = UserMeta::find(\Auth::user()->id);
+            if (\File::exists(public_path('/images/user/'.$user_meta->photo))) {
+                \File::delete(public_path('/images/user/'.$user_meta->photo));
+            }
+            $user_meta->photo =  $time . '.png';
+            $user_meta->save();
+            return SuccessResponse('', Config::get('message.options.SUCESS'));
+        } catch (Exception $ex) {
+            return FailResponse($ex->getMessage(), $ex->getCode());
+        }
+    }
+
+    public function UserUpdate(Request $request)
+    {
+        try {
+            $data = $request->input();
+            $validation = \Validator::make($data, ValidationRequest::$userMetA);
+
+            if ($validation->fails()) {
+                return ValidationResponse($validation->errors(), Config::get('message.options.VALIDATION_FAILED'));
+            }
+           $user = User::find(\Auth::user()->id);
+            $user->first_name = $data['first_name'];
+            $user->last_name = $data['last_name'];
+            $user->save();
+
+            $user_meta = $user->UserMeta()->whereUserId(\Auth::user()->id)->first();
+            $user_meta->age = $data['age'];
+            $user_meta->gender = $data['gender'];
+            $user_meta->height = $data['height'];
+            $user_meta->weight = $data['weight'];
+            $user_meta->foot_size = $data['foot_size'];
+            $user_meta->save();
+            return SuccessResponse('', Config::get('message.options.SUCESS'));
         } catch (Exception $ex) {
             return FailResponse($ex->getMessage(), $ex->getCode());
         }
@@ -249,7 +308,7 @@ class UserController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -260,7 +319,7 @@ class UserController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -271,7 +330,7 @@ class UserController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -282,8 +341,8 @@ class UserController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \Illuminate\Http\Request $request
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -294,7 +353,7 @@ class UserController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)

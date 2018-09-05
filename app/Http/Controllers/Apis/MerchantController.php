@@ -3,8 +3,14 @@
 namespace App\Http\Controllers\Apis;
 
 use App\Model\MerchantMeta;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Activation;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Config;
+use Illuminate\Support\Facades\Redirect;
+use App\Http\Requests\ValidationRequest;
+use Illuminate\Support\Facades\Validator;
+use View;
 
 class MerchantController extends Controller
 {
@@ -15,11 +21,11 @@ class MerchantController extends Controller
      */
     public function index()
     {
-        $usersMeta = MerchantMeta::with(array('User' => function ($query) {
+        $merchant = MerchantMeta::with(array('User' => function ($query) {
             $query->select('id', 'email', 'first_name', 'last_name');
         },
         ))->get();
-        return SuccessResponse($usersMeta, Config::get('message.options.SUCESS'));
+        return SuccessResponse($merchant, Config::get('message.options.SUCESS'));
     }
 
     /**
@@ -35,7 +41,7 @@ class MerchantController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -46,18 +52,22 @@ class MerchantController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
-        //
+        $merchant = MerchantMeta::with(array('User' => function ($query) {
+            $query->select('id', 'email', 'first_name', 'last_name');
+        },
+        ))->find($id);
+        return SuccessResponse($merchant, Config::get('message.options.SUCESS'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -68,8 +78,8 @@ class MerchantController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \Illuminate\Http\Request $request
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -80,7 +90,7 @@ class MerchantController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
