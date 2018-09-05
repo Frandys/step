@@ -49,4 +49,6 @@ class UserController extends Controller
             return View::make('errors.exception')->with('Message', $ex->getMessage());
         }
     }
+
+
 }

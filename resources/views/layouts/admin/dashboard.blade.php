@@ -27,14 +27,14 @@
 
                     <ul class="nav flex-column">
                         <li class="nav-item">
-                            <a class="nav-link active" href="#">
+                            <a class="nav-link {{ (Request::is('*admin') ?  'active' : '') }}" href="{{url('admin')}}">
                                 <img class="blck" src="{{asset('assets/admin/images/black/dash.png')}}"/>
                                 <img class="whte" src="{{asset('assets/admin/images/white/dash.png')}}"/>
                                 <span>Home</span>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" {{ (Request::is('*admin/user') ? 'active' : '') }} href="{{url('admin/user')}}">
                                 <img class="blck" src="{{asset('assets/admin/images/black/manage.png')}}"/>
                                 <img class="whte" src="{{asset('assets/admin/images/white/manage.png')}}"/>
                                 <span>Manage Users</span>
@@ -115,14 +115,14 @@
                     </div>
                     <ul class="nav flex-column">
                         <li class="nav-item">
-                            <a class="nav-link active" href="#">
+                            <a class="nav-link  {{ (\Request::is('*admin') ? 'active' : '') }}" href="{{url('admin')}}">
                                 <img class="blck" src="{{asset('assets/admin/images/black/dash.png')}}"/>
                                 <img class="whte" src="{{asset('assets/admin/images/white/dash.png')}}"/>
                                 <span>Home</span>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" {{ (\Request::is('*admin/user') ? 'active' : '') }} href="{{url('admin/user')}}">
                                 <img class="blck" src="{{asset('assets/admin/images/black/manage.png')}}"/>
                                 <img class="whte" src="{{asset('assets/admin/images/white/manage.png')}}"/>
                                 <span>Manage Users</span>

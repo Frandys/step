@@ -16,12 +16,11 @@ Auth::routes();
 //
 ////Admin Routes
  Route::get('/', function () {
-     return View::make('auth.login');
+     return View::make('admin.login');
 });
 //
 //
 Route::group(['middleware' => 'admin', 'prefix' => 'admin'], function () {
-
     Route::get('/', function () {
         return View::make('admin.dashboard');
     });
@@ -29,5 +28,7 @@ Route::group(['middleware' => 'admin', 'prefix' => 'admin'], function () {
         return View::make('admin.change_password');
     });
      Route::post('change_password', 'UserController@changePassword');
-
+    Route::resource('user', 'Admin\UserController');
+    Route::get('view_users', 'Admin\UserController@viewUsers');
+    Route::post('activate_users', 'Admin\UserController@activateUsers');
 });

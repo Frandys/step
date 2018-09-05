@@ -32,7 +32,7 @@
 							</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link active" href="#">
+							<a class="nav-link " href="#">
 								<img class="blck" src="images/black/manage.png"/>
 								<img class="whte" src="images/white/manage.png"/>
 								<span>Manage Users</span>
@@ -52,8 +52,8 @@
 								<span>Manage Step Algorithhms</span>
 							</a>
 						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="#">
+						<li class="nav-item ">
+							<a class="nav-link active" href="#">
 								<img class="blck" src="images/black/marketing.png"/>
 								<img class="whte" src="images/white/marketing.png"/>
 								<span>Email Marketing</span>
@@ -120,7 +120,7 @@
 							</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link active" href="#">
+							<a class="nav-link " href="#">
 								<img class="blck" src="images/black/manage.png"/>
 								<img class="whte" src="images/white/manage.png"/>
 								<span>Manage Users</span>
@@ -141,7 +141,7 @@
 							</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="#">
+							<a class="nav-link active" href="#">
 								<img class="blck" src="images/black/marketing.png"/>
 								<img class="whte" src="images/white/marketing.png"/>
 								<span>Email Marketing</span>
@@ -184,7 +184,7 @@
 						<div class="row no-gutters">
 							<div class="col">
 								<div class="heading-wrap">
-									<h2>Managing Users </h2>
+									<h2>Managing Users</h2>
 								</div>
 							</div>
 							<div class="col text-right">
@@ -220,181 +220,98 @@
 					</div>
 					<div class="diash-wrap-white">
 						<div class="dash-page register">
-							<div class="row dash-top mb-2">
-								<div class="col-md-8 dash-title">
-									<h3 class="small-head">Users <small>> John Doe</small></h3>
-									
+							<div class="row no-gutters dash-top mb-2">
+								<div class="col-md-7 dash-title">
+									<h3 class="small-head">Email</h3>
+									<div class="form-group search">
+										<input type="email" id="defaultLoginFormEmail" class="form-control " placeholder="Search by Name, Email Id">
+									</div>
 								</div>
-								<div class="col-md-4 text-right">
-									<button type="button" class="link block-link" data-toggle="modal" data-target="#blockModal">Block</button>
+								<div class="col-md-3 compose">
+									<button type="button" class="link edit" data-toggle="modal" data-target="#maiilModal">Compose Mail</button>
+													
 								</div>
+								<div class="col-md-2 text-right delete">
+									<button type="button" class="link delete" data-toggle="modal" data-target="#deleteMerchant"><img src="images/delete.png" class="img-fluid">Delete</button>
+								</div>
+								
 							</div>
-							<div class="individual-user">
-								<div class="row">
-									<div class="col-md-5 profile">
-										<div class="row no-gutters profile-name in-shadow">
-											<div class="col-lg-4 col-md-12 col-sm-12 text-md-center">
-												<div class="img-wrap">
-													<img src="images/profile.png" class="img-fluid">
-												</div>
-											</div>
-											<div class="col-lg-8 col-md-12 col-sm-12 ">
-												<div class="text-wrap">
-													<div class="row no-gutters">
-														<div class="col name">
-															<strong>User Name</strong>
-															<p>John Doe</p>
-														</div>
-														<div class="col name text-right">
-															<button type="button" class="link block-link" data-toggle="modal" data-target="#maiilModal">Mail John Doe</button>
-														</div>
+							<div class="dash-table in-shadow">
+								<div class="user-table tat table-responsive">
+									<table class="table email">
+										<thead>
+											<tr>
+												<th colspan="4" scope="col">
+													<div class="custom-control custom-checkbox">
+														<input type="checkbox" class="form-check-input">
 													</div>
-													<div class="row no-gutters">
-														<div class="col name">
-															<strong>Email</strong>
-															<p>John.Doe@gmail.com</p>
-														</div>
+												</th>
+												<th colspan="6" class="select" scope="col"><h5>Select All</h5></th>
+												<th colspan="4" class="text-right" scope="col">
+													<button type="button" class="link edit" data-toggle="modal" data-target="">Promotional Mail History</button>
+												</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<th colspan="4" scope="col">
+													<div class="custom-control custom-checkbox">
+														<input type="checkbox" class="form-check-input">
 													</div>
-												</div>
-											</div>
-										</div>
-										<div class="target in-shadow">
-											<div class="row no-gutters title mb-2">
-												<div class="col">
-													<strong>Daily Target</strong>
-												</div>
-												<div class="col text-right">
-													<span>Steps Vs Target</span>
-												</div>
-											</div>
-											<div class="paw mb-2">
-												<img src="images/step.png" class="img-fluid">
-												<img src="images/step.png" class="img-fluid">
-												<img src="images/step.png" class="img-fluid">
-												<img src="images/step.png" class="img-fluid">
-												<img src="images/step.png" class="img-fluid">
-											</div>
-											<div class="row no-gutters title ">
-												<div class="col">
-													<p>Coupon Value: $25</p>
-												</div>
-												<div class="col timer">
-													<strong>00:11:45 Left</strong>
-												</div>
-												<div class="col text-right">
-													<p>1024</p>
-												</div>
-											</div>
-										</div>
-										<div class="target in-shadow">
-											<div class="row no-gutters title mb-2">
-												<div class="col">
-													<strong>Weekly Target</strong>
-												</div>
-												<div class="col text-right">
-													<span>Steps Vs Target</span>
-												</div>
-											</div>
-											<div class="paw mb-2">
-												<img src="images/step.png" class="img-fluid">
-												<img src="images/step.png" class="img-fluid">
-												<img src="images/step.png" class="img-fluid">
-												<img src="images/step.png" class="img-fluid">
-												<img src="images/step.png" class="img-fluid">
-											</div>
-											<div class="row no-gutters title">
-												<div class="col">
-													<p>Coupon Value: $25</p>
-												</div>
-												<div class="col timer">
-													<strong>00:11:45 Left</strong>
-												</div>
-												<div class="col text-right">
-													<p>1024</p>
-												</div>
-											</div>
-										</div>
-										<div class="target in-shadow">
-											<div class="row no-gutters title mb-2">
-												<div class="col">
-													<strong>Monthly Target</strong>
-												</div>
-												<div class="col text-right">
-													<span>Steps Vs Target</span>
-												</div>
-											</div>
-											<div class="paw mb-2">
-												<img src="images/step.png" class="img-fluid">
-												<img src="images/step.png" class="img-fluid">
-												<img src="images/step.png" class="img-fluid">
-												<img src="images/step.png" class="img-fluid">
-												<img src="images/step.png" class="img-fluid">
-											</div>
-											<div class="row no-gutters title">
-												<div class="col">
-													<p>Coupon Value: $25</p>
-												</div>
-												<div class="col timer">
-													<strong>00:11:45 Left</strong>
-												</div>
-												<div class="col text-right">
-													<p>1024</p>
-												</div>
-											</div>
-										</div>
-									</div>
-									<div class="col-md-7 coupon ">
-										<div class="coupon-wrap in-shadow">
-											<div class="row no-gutters heading mb-4">
-												<div class="col-lg-6">
-													<h4>Target Achievment History</h4>
-												</div>
-												<div class="col-lg-6 text-lg-right">
-													<h4>Total Money Won - <span class="bluee">$23</span></h4>
-												</div>
-											</div>
-											<div class="row coupons-list">
-												<div class="col-sm-6">
-													<div class="coupon-wrap-box">
-														<div class="img-wrap">
-															<img src="images/coupon.png" class="img-fluid">
-														</div>
-														<p class="sps">Steps - 1300</p>
-														<p class="status pending">Status - Pending</p>
+												</th>
+												<td class="select" colspan="6"><strong>Promotional Mail Title</p></td>
+												<td colspan="4"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p></td>
+											</tr>
+											<tr>
+												<th colspan="4" scope="col">
+													<div class="custom-control custom-checkbox">
+														<input type="checkbox" class="form-check-input">
 													</div>
-												</div>
-												<div class="col-sm-6">
-													<div class="coupon-wrap-box">
-														<div class="img-wrap">
-															<img src="images/coupon.png" class="img-fluid">
-														</div>
-														<p class="sps">Steps - 1300</p>
-														<p class="status reedmed">Status - Reedmed</p>
+												</th>
+												<td class="select" colspan="6"><strong>Promotional Mail Title</p></td>
+												<td colspan="4"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p></td>
+											</tr>
+											<tr>
+												<th colspan="4" scope="col">
+													<div class="custom-control custom-checkbox">
+														<input type="checkbox" class="form-check-input">
 													</div>
-												</div>
-												<div class="col-sm-6">
-													<div class="coupon-wrap-box">
-														<div class="img-wrap">
-															<img src="images/coupon.png" class="img-fluid">
-														</div>
-														<p class="sps">Steps - 1300</p>
-														<p class="status pending">Status - Pending</p>
+												</th>
+												<td class="select" colspan="6"><strong>Promotional Mail Title</p></td>
+												<td colspan="4"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p></td>
+											</tr>
+											<tr>
+												<th colspan="4" scope="col">
+													<div class="custom-control custom-checkbox">
+														<input type="checkbox" class="form-check-input">
 													</div>
-												</div>
-												<div class="col-sm-6">
-													<div class="coupon-wrap-box">
-														<div class="img-wrap">
-															<img src="images/coupon.png" class="img-fluid">
-														</div>
-														<p class="sps">Steps - 1300</p>
-														<p class="status pending">Status - Pending</p>
+												</th>
+												<td class="select" colspan="6"><strong>Promotional Mail Title</p></td>
+												<td colspan="4"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p></td>
+											</tr>
+											<tr>
+												<th colspan="4" scope="col">
+													<div class="custom-control custom-checkbox">
+														<input type="checkbox" class="form-check-input">
 													</div>
-												</div>
-												
-											</div>
-										</div>
-									</div>
-									
+												</th>
+												<td class="select" colspan="6"><strong>Promotional Mail Title</p></td>
+												<td colspan="4"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p></td>
+											</tr>
+											<tr>
+												<th colspan="4" scope="col">
+													<div class="custom-control custom-checkbox">
+														<input type="checkbox" class="form-check-input">
+													</div>
+												</th>
+												<td class="select" colspan="6"><strong>Promotional Mail Title</p></td>
+												<td colspan="4"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p></td>
+											</tr>
+											
+										</tbody>
+										
+	
+									</table>
 								</div>
 							</div>
 						</div>
@@ -404,6 +321,7 @@
 		</div>
 	</div>
 </section>
+
 <div class="modal-wrap">
 	<div class="modal fade" id="blockModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 		<div class="modal-dialog" role="document">
@@ -462,14 +380,130 @@
 			</div>
 		</div>
 	</div>
+	<div class="modal fade maiilModal" id="addMerchant" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">Add New Merchant</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<div class="text-wrap add-merchant">
+						<!-- Form -->
+						<form class="" style="">
+							<div class="row">
+								<div class="col-sm-5">
+									<div class="img-wrap in-shadow">
+										<div class="camera-wrap">
+											<img src="images/camera.png" class="img-fluid">
+										</div>
+									</div>
+								</div>
+								<div class="col-sm-7">
+									<div class="md-form mt-0">
+										<input type="text" id="FormEmail" class="form-control">
+										<label for="FormEmail">Merchant Name</label>
+									</div>
+									<div class="md-form mt-0">
+										<input type="text" id="subEmail" class="form-control">
+										<label for="subEmail">Phone Number</label>
+									</div>
+									<div class="md-form mt-0">
+										<textarea class="form-control" id="textarea2" rows="3"></textarea>
+										<label for="textarea2">Description</label>
+									</div>
+								</div>
+							</div>
+							<!-- Sign up button -->
+							<button class="btn" type="submit">Create</button>
+						</form>
+						<!-- Form -->
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="modal fade maiilModal" id="editMerchant" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">Edit Merchant</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<div class="text-wrap add-merchant">
+						<!-- Form -->
+						<form class="" style="">
+							<div class="row">
+								<div class="col-sm-5">
+									<div class="img-wrap in-shadow">
+										<img src="images/brand.png" class="img-fluid">
+										<div class="camera-wrap">
+											<img src="images/camera.png" class="img-fluid">
+										</div>
+									</div>
+								</div>
+								<div class="col-sm-7">
+									<div class="md-form mt-0">
+										<input type="text" id="FormEmail" class="form-control">
+										<label for="FormEmail">Merchant Name</label>
+									</div>
+									<div class="md-form mt-0">
+										<input type="text" id="subEmail" class="form-control">
+										<label for="subEmail">Phone Number</label>
+									</div>
+									<div class="md-form mt-0">
+										<textarea class="form-control" id="textarea2" rows="3"></textarea>
+										<label for="textarea2">Description</label>
+									</div>
+								</div>
+							</div>
+							<!-- Sign up button -->
+							<button class="btn" type="submit">Edit</button>
+						</form>
+						<!-- Form -->
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="modal fade maiilModal" id="deleteMerchant" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">Delete Merchant</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<div class="text-wrap">
+						<p>By Deteing merchant you will lorem ipsum dolor</p>
+						<div class="mfooter delete">
+							<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+							<button type="button" class="btn btn-primary">Save changes</button>
+						</div>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+	</div>
 
 </div>
+
+
 <script src="js/jquery-3.3.1.min.js" ></script>
 <script src="js/popper.min.js"></script>
 <script src="js/bootstrap.js"></script>
+<!-- MDB core JavaScript -->
 <script type="text/javascript" src="js/mdb.min.js"></script>
 <script src="owlcarousel/owl.carousel.js"></script>
-<script src="js/numscroller-1.0.js"></script>
+
 <script src="js/script.js"></script>
 </body>
 </html>
