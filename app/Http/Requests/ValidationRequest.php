@@ -67,6 +67,11 @@ class ValidationRequest extends FormRequest
 
     ];
 
+    public static $ticketAdd = [
+        'title' => 'required|min:2|max:100',
+        'question' => 'required|min:2|max:500',
+    ];
+
     public function authorize()
     {
         return false;

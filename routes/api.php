@@ -39,8 +39,11 @@ Route::group(['middleware' => 'auth:api', 'namespace' => 'Apis'], function () {
     Route::get('/body', function () {
         return SuccessResponse(\App\Model\BodyParts::select('slug')->get(), Config::get('message.options.SUCESS'));
     });
-
     Route::get('/body/{slug}', function ($slug) {
         return SuccessResponse(\App\Model\BodyParts::where('slug',$slug)->get(), Config::get('message.options.SUCESS'));
+    });
+    Route::resource('ticket', 'TicketController');
+    Route::get('/ticket_by_user_id', function () {
+        return SuccessResponse(\App\Model\Tickets::where('user_id',\Auth::user()->id)->get(), Config::get('message.options.SUCESS'));
     });
 });
