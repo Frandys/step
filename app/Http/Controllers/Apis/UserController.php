@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Apis;
 
 use App\Http\Controllers\Controller;
 use Activation;
+use App\Model\UserCoupon;
 use App\Model\UserMeta;
 use Cartalyst\Sentinel\Sentinel;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
@@ -257,10 +258,10 @@ class UserController extends Controller
             file_put_contents($file, $image_base64);
 
             $user_meta = UserMeta::find(\Auth::user()->id);
-            if (\File::exists(public_path('/images/user/'.$user_meta->photo))) {
-                \File::delete(public_path('/images/user/'.$user_meta->photo));
+            if (\File::exists(public_path('/images/user/' . $user_meta->photo))) {
+                \File::delete(public_path('/images/user/' . $user_meta->photo));
             }
-            $user_meta->photo =  $time . '.png';
+            $user_meta->photo = $time . '.png';
             $user_meta->save();
             return SuccessResponse('', Config::get('message.options.SUCESS'));
         } catch (Exception $ex) {
@@ -277,7 +278,7 @@ class UserController extends Controller
             if ($validation->fails()) {
                 return ValidationResponse($validation->errors(), Config::get('message.options.VALIDATION_FAILED'));
             }
-           $user = User::find(\Auth::user()->id);
+            $user = User::find(\Auth::user()->id);
             $user->first_name = $data['first_name'];
             $user->last_name = $data['last_name'];
             $user->save();
@@ -294,6 +295,29 @@ class UserController extends Controller
             return FailResponse($ex->getMessage(), $ex->getCode());
         }
     }
+
+    public function assignCoupan(Request $request)
+    {
+        try {
+            $data = $request->input();
+            $validation = \Validator::make($data, ValidationRequest::$MarchantId);
+
+            if ($validation->fails()) {
+                return ValidationResponse($validation->errors(), Config::get('message.options.VALIDATION_FAILED'));
+            }
+
+//            $user = User::with('UserCoupan')->find(\Auth::user()->id);
+//            $UserCoupon = new UserCoupon;
+//            $UserCoupon->
+//            $user->UserCoupan()->save();
+
+
+  //  print_r(json_decode(json_encode($user))); die;
+        } catch (Exception $ex) {
+            return FailResponse($ex->getMessage(), $ex->getCode());
+        }
+    }
+
 
     /**
      * Show the form for creating a new resource.

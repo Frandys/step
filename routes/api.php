@@ -32,9 +32,10 @@ Route::group(['middleware' => 'auth:api', 'namespace' => 'Apis'], function () {
     Route::resource('user', 'UserController');
     Route::resource('user', 'UserController');
     Route::post('user_update', 'UserController@UserUpdate')->name('user_update');
+    Route::post('assign_coupan', 'UserController@assignCoupan')->name('assignCoupan');
 
     Route::resource('merchant', 'MerchantController');
-
+    Route::get('get_merchant_user_id', 'MerchantController@getMerchantUserId')->name('get_merchant_user_id');
     Route::get('/body', function () {
         return SuccessResponse(\App\Model\BodyParts::select('slug')->get(), Config::get('message.options.SUCESS'));
     });

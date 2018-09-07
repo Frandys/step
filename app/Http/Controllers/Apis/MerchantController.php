@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Apis;
 use App\Model\MerchantMeta;
 use App\Http\Controllers\Controller;
 use Activation;
+use App\Model\UserCoupon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Redirect;
@@ -26,6 +27,12 @@ class MerchantController extends Controller
         },
         ))->get();
         return SuccessResponse($merchant, Config::get('message.options.SUCESS'));
+    }
+
+    public function getMerchantUserId()
+    {
+      $merchant =  UserCoupon::with(['Merchant','MerchantMeta'])->where('user_id',\Auth::user()->id)->get();
+      return SuccessResponse($merchant, Config::get('message.options.SUCESS'));
     }
 
     /**

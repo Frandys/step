@@ -35,6 +35,11 @@ class User extends Authenticatable
      return   $this->belongsToMany('App\Model\Role','role_users','user_id','role_id');
     }
 
+    public function  UserCoupan(){
+        return $this->hasMany('App\Model\UserCoupon', 'user_id', 'id');
+    }
+
+
     public function  UserMeta(){
 
         return   $this->hasOne('App\Model\UserMeta');

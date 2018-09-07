@@ -18,7 +18,7 @@ class CreateUserCouponsTable extends Migration
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->integer('merchant_coupons_id')->unsigned();
-            $table->foreign('merchant_coupons_id')->references('id')->on('merchant_coupons')->onDelete('cascade');
+            $table->foreign('merchant_coupons_id')->references('id')->on('users')->onDelete('cascade');
             $table->integer('updated_at');
             $table->integer('created_at');
         });

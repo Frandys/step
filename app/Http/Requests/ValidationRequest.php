@@ -62,6 +62,11 @@ class ValidationRequest extends FormRequest
 
     ];
 
+    public static $MarchantId= [
+        'merchant_id' => 'required',
+
+    ];
+
     public function authorize()
     {
         return false;
