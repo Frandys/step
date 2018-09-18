@@ -50,7 +50,7 @@
 						<div class="d-flex justify-content-end">
 							<div>
 								<!-- Forgot password -->
-								<a href="">Forgot password?</a>
+								<a href="{{url('password/reset')}}">Forgot password?</a>
 							</div>
 						</div>
 						<!-- Sign in button -->

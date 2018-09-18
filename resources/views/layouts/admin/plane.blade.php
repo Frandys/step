@@ -15,6 +15,10 @@
     <link rel="stylesheet" href="{{ asset("assets/admin/css/dataTables.min.css") }}">
     <link rel="stylesheet" href="{{ asset("assets/admin/owlcarousel/owl.carousel.min.css") }}">
 	<link rel="stylesheet" href="{{ asset("assets/admin/owlcarousel/owl.theme.default.min.css") }}">
+	<link rel="stylesheet" href="{{ asset("assets/admin/css/bootoast.css") }}">
+    <link rel="stylesheet" href="http://demo.itsolutionstuff.com/plugin/croppie.css">
+
+
 </head>
 
 
@@ -30,6 +34,8 @@
 	<script src="{{ asset("assets/admin/js/mdb.min.js") }}" type="text/javascript"></script>
 	<script src="{{ asset("assets/admin/owlcarousel/owl.carousel.js") }}" type="text/javascript"></script>
 	<script src="{{ asset("assets/admin/js/script.js") }}" type="text/javascript"></script>
+	<script src="{{ asset("assets/admin/js/bootoast.js") }}" type="text/javascript"></script>
+    <script src="http://demo.itsolutionstuff.com/plugin/croppie.js"></script>
 	@stack('scripts')
 
 </body>

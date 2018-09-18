@@ -37,9 +37,10 @@
     max-width: 320px;
     text-align: center;
     background-image: url(../images/paw.png);
-    background-size: 79%;
-    background-position: center;
+    background-size: 82%;
+    background-position: 18px center;
     background-repeat: no-repeat;
+    padding: 0 4rem 0 0;
 }
 
 .form-page .form-wrap form {
@@ -52,21 +53,25 @@
     border-bottom: 1px solid #dedede;
     box-shadow: none;
     padding: 0.375rem 1.75rem 0.375rem 0.75rem;
+    background: transparent;
+    font-weight: 300;
 }
 .form-page .form-wrap a {
     color: #01b6ad;
     font-weight: 400;
-    font-size: 13px;
+    font-size: 12px;
 }
 .form-page .form-wrap img.logo {
     margin: 0 auto 1rem;
     display: block;
+    width: 100px;
 }
 
 .form-page .form-wrap h2 {
     width: 100%;
-    font-weight: 500;
+    font-weight: 600;
     color: #00b6ad;
+    font-size: 23px;
 }
 .form-page .form-wrap .btn {
     border: 1px solid #00b6ad;
@@ -76,6 +81,8 @@
     font-size: 16px;
     text-transform: capitalize;
     border-radius: 10px;
+    padding: 10px;
+    font-weight: 500;
 }
 .form-page .form-wrap .btn:focus,.form-page .form-wrap .btn:active {
     background: transparent !important;
@@ -120,7 +127,7 @@
 .dashboard-page .menu-wrap .logo-wrap {
     text-align: center;
 }
-.dashboard-page .menu-wrap .nav .nav-item a.active,.dashboard-page .menu-wrap .nav .nav-item a:hover {
+.dashboard-page .menu-wrap .nav .nav-item > a.active, .dashboard-page .menu-wrap .nav .nav-item > a:hover {
     background: #00b6ad;
     color: #fff;
 }
@@ -138,7 +145,7 @@
 .dashboard-page .menu-wrap .nav .nav-item .nav-link img {
     height: auto;
     margin: 0 0.5rem 0 0;
-    width: 40px;
+    width: 32px;
 }
 
 .dashboard-page .menu-wrap .nav .nav-item a.active .blck, .dashboard-page .menu-wrap .nav .nav-item a:hover .blck {
@@ -157,7 +164,7 @@
 .dashboard-page .admin-wrap {
     min-height: 100vh;
     background-image: url(../images/bg.png);
-    padding: 20px;
+    padding: 27px;
     background-size: cover;
 }
 .dashboard-page .admin-wrap .top-bar .heading-wrap h2 {
@@ -189,8 +196,8 @@
 .dashboard-page .admin-wrap .top-bar .dashtop .btn span.name {
     margin: 0 5px 0 0;
 }
-.dashboard-page .admin-wrap .diash-wrap-white {
-    padding: 20px;
+.dashboard-page .admin-wrap .diash-wrap-white,.dashboard-page .admin-wrap .diash-wrap-chat {
+    padding: 26px;
     background: #fff;
     border-radius: 10px;
     box-shadow: 0 0px 20px rgba(0,0,0,.12);
@@ -204,20 +211,21 @@
     border-radius: 8px;
 }
 .dashboard-page .admin-wrap .trending-list .text-wrap .head-wrap {
-    border-bottom: 1px solid #4e4a4a;
+    border-bottom: 2px solid #676767;
     font-size: 16px;
     text-align: center;
     margin: 0 0 0.4rem 0;
 }
 .dashboard-page .admin-wrap .trending-list .text-wrap .head-wrap h4 {
     font-weight: 500;
-    font-size: 15px;
-    color: #3e3d3d;
+    font-size: 14.5px;
+    color: #676767;
     margin: 0.2rem 0 0.5rem 0;
 }
 .dashboard-page .admin-wrap .trending-list .text-wrap .data p {
     margin: 0;
-    font-size: 14px;
+    font-size: 12px;
+    color: #929292;
 }
 .dashboard-page .admin-wrap .trending-list .text-wrap .data {
     padding: 3px 2px;
@@ -244,11 +252,13 @@
     font-weight: 600;
     color: #b5b5b5;
     float: left;
-    margin: 0 10% 0 0;
+    margin: 0 5% 0 0;
+    font-size: 25px;
 }
 .dashboard-page .admin-wrap .dash-top .text-right p {
     margin: 0;
     font-size: 14px;
+    color: #676767;
     font-weight: 400;
 }
 .dashboard-page .admin-wrap .dash-top .text-right p span {
@@ -351,25 +361,35 @@ a.edit
 .dashboard-page .admin-wrap .dash-top .search {
     float: left;
     margin: 0;
+    position: relative;
 }
 .dashboard-page .admin-wrap .dash-top .search input.form-control {
-    max-width: 400px;
-    width: 400px;
+    max-width: 480px;
+    width: 480px;
     border-radius: 20px;
     box-shadow: none;
+    height: auto;
+    padding: 8px 35px 8px 15px;
+    font-size: 14px;
+    line-height: 19px;
 }
 .dashboard-page .admin-wrap .dash-table a.block,.dashboard-page .admin-wrap .dash-table a.view {
     border-bottom: 1px solid;
     margin: 0 15px 0 0;
+    font-weight: 400;
+    text-transform: capitalize;
 }
 .dashboard-page .admin-wrap .dash-table a.block{
 	color: #d40000;
+	margin: 0 35px 0 0;
 }
 .dashboard-page .admin-wrap .dash-table a.view {
 	color: #00b6ad;
+	cursor: pointer;
 }
 .dashboard-page .admin-wrap .diash-wrap-white .dash-table {
     border-radius: 10px;
+    padding: 20px 30px;
 }
 .dashboard-page .admin-wrap .diash-wrap-white .text-right .link.block-link {
     border: none;
@@ -378,6 +398,9 @@ a.edit
     color: #d40000;
     padding: 0;
     box-shadow: none;
+    cursor: pointer;
+    outline: none;
+    font-weight: 500;
 }
 .dashboard-page .admin-wrap .diash-wrap-white .profile-name {
     padding: 20px;
@@ -394,11 +417,15 @@ a.edit
 }
 .dashboard-page .admin-wrap .diash-wrap-white .profile-name .text-wrap p {
     margin: 0;
-    font-size: 15px;
+    font-size: 13px;
+    line-height: 15px;
 }
 .dashboard-page .admin-wrap .diash-wrap-white .profile-name .text-wrap strong {
-    font-weight: 600;
-    font-size: 15px;
+    font-weight: 500;
+    font-size: 14px;
+    display: inline-block;
+    color: #5f5f61;
+    line-height: 13px;
 }
 .dashboard-page .admin-wrap .diash-wrap-white .profile-name .text-wrap .row.no-gutters {
     margin: 0 0 0.6rem 0;
@@ -412,14 +439,17 @@ a.edit
 .dashboard-page .admin-wrap .diash-wrap-white .target {
     margin: 0 0 1rem 0;
     font-size: 14px;
-    padding: 15px 25px;
+    padding: 15px 30px;
+    border-radius: 8px;
 }
 .dashboard-page .admin-wrap .diash-wrap-white .target p {
     margin: 0;
+    font-size: 13px;
 }
 .dashboard-page .admin-wrap .diash-wrap-white .target .timer strong {
     color: #00b6ad;
     font-weight: 500;
+    font-size: 13px;
 }
 .dashboard-page .admin-wrap .diash-wrap-white .target strong {
     font-weight: 500;
@@ -434,12 +464,12 @@ a.edit
     color: #636363;
 }
 .dashboard-page .admin-wrap .diash-wrap-white .coupon .coupon-wrap .coupon-wrap-box {
-    margin: 0 0 1rem 0;
+    margin: 0 0 1.5rem 0;
 }
 .dashboard-page .admin-wrap .diash-wrap-white .coupon .coupon-wrap .coupon-wrap-box p {
     margin: 0;
     font-weight: 500;
-    font-size: 16px;
+    font-size: 14px;
     line-height: 17px;
 }
 .dashboard-page .admin-wrap .diash-wrap-white .coupon .coupon-wrap .coupon-wrap-box  p.sps {
@@ -470,17 +500,19 @@ a.edit
     border: none;
     border-bottom: 2px solid #dedede !important;
     box-shadow: none !important;
+    font-size: 14px;
 }
-.maiilModal .modal-body form button {
+.maiilModal .modal-body form button{
     background: transparent;
     box-shadow: none;
     color: #00b6ad;
     border: 1px solid #00b6ad;
     font-weight: 500;
-    border-radius: 20px;
-    padding: 13px 60px;
+    border-radius: 7px;
+    padding: 10px 60px;
     text-transform: capitalize;
     font-size: 16px;
+    min-width: 220px;
 }
 .maiilModal .modal-body form button:focus {
     box-shadow: none;
@@ -493,9 +525,646 @@ a.edit
     outline: none;
     border: none;
     box-shadow: none;
+    cursor: pointer;
 }
 .form-page .form-wrap p.text-center {
-    width: 56%;
+    width: 72%;
     margin: 0 auto;
-    font-size: 0.9rem;
+    color: #797979;
+    line-height: 17px;
+    font-size: 13px;
+}
+.dashboard-page .admin-wrap .diash-wrap-white .img-wrap {
+    border-radius: 50%;
+    width: 180px;
+    height: 180px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+.dashboard-page .admin-wrap .diash-wrap-white .coupon-wrap-box .img-wrap{
+	padding: 0;
+	max-width: 220px;
+	display: inline-block;
+	width: 100%;
+	height: auto;
+	box-shadow: 0 0px 20px rgba(0,0,0,.12);
+	margin: 0 0 0.3rem 0;
+}
+.dashboard-page .admin-wrap .diash-wrap-white .text-wrap .top strong {
+    font-size: 19px;
+    font-weight: 500;
+    color: #757575;
+}
+
+.dashboard-page .admin-wrap .diash-wrap-white .text-wrap  p.data {
+    font-weight: 400;
+    font-size: 14px;
+    margin: 0;
+}
+
+.dashboard-page .admin-wrap .diash-wrap-white .text-wrap p.data {
+    margin: 0 0 0.4rem 0;
+    font-size: 14px;
+}
+
+.dashboard-page .admin-wrap .diash-wrap-white .text-wrap p.data img {
+    width: 26px;
+    margin: 0 7px 0 0;
+}
+
+.dashboard-page .admin-wrap .diash-wrap-white .text-wrap p.data  a.stars {
+    border-bottom: 1px solid;
+    font-weight: 500;
+    color: #00b6ad;
+}
+
+.dashboard-page .admin-wrap .diash-wrap-white .individual-merchant {
+    padding: 30px 40px;
+    box-shadow: 0 0px 20px rgba(0,0,0,.12);
+    border-radius: 10px;
+}
+button.link.create {
+    border: none;
+    background: transparent;
+    border-bottom: 1px solid;
+    color: #00b6ad;
+    padding: 0;
+    cursor: pointer;
+    box-shadow: none;
+    outline: none;
+}
+.dashboard-page .admin-wrap .diash-wrap-white .text-wrap p.desc {
+    margin: 0;
+}
+
+.dashboard-page .admin-wrap .diash-wrap-white .text-wrap p.desc strong {
+    display: block;
+    font-size: 14px;
+    font-weight: 500;
+    color: #5a5a5a;
+}
+
+.dashboard-page .admin-wrap .diash-wrap-white .text-wrap p.desc small {
+    font-size: 12px;
+    display: inline-block;
+    width: 100%;
+    line-height: 17px;
+}
+.diash-wrap-white .individual-merchant .text-wrap .top .link {
+    background: transparent;
+    border: none;
+    font-size: 17px;
+    box-shadow: none;
+    cursor: pointer;
+    outline: none;
+}
+.diash-wrap-white .individual-merchant .text-wrap .top button.delete {
+    color: #dd0000;
+}
+.diash-wrap-white .individual-merchant .text-wrap .top button img,.dashboard-page .diash-wrap-white .algo-wrap .link.edit img ,.dashboard-page .admin-wrap .diash-wrap-white .dash-top .delete .link img, .dashboard-page .admin-wrap .diash-wrap-white .page-title .link.edit img,.dashboard-page .admin-wrap .diash-wrap-white .content-wrap .link.edit img{
+    width: 21px;
+    margin: 0 5px 0 0;
+}
+.dashboard-page .admin-wrap .diash-wrap-white .link.edit img{
+	width: 27px;
+	margin: 0 5px 0 0;
+}
+.diash-wrap-white .individual-merchant .text-wrap .top button.edit {
+    color: #6e6e6f;
+    font-size: 17px;
+}
+.maiilModal .modal-body .text-wrap.add-merchant .img-wrap {
+    height: 184px;
+    width: 184px;
+    border-radius: 50%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.maiilModal .modal-body .text-wrap.add-merchant .img-wrap .camera-wrap {
+    position: absolute;
+    background: #00b6ad;
+    width: 50px;
+    height: 50px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    border-radius: 50px;
+    right: 0;
+    bottom: 0;
+}
+
+.maiilModal .modal-body .text-wrap.add-merchant .img-wrap .camera-wrap img {
+    width: 25px;
+}
+.maiilModal .modal-body .mfooter.delete .btn {
+    margin: 0;
+}
+
+.dashboard-page .diash-wrap-white .challenge-wrap {
+    padding: 25px;
+    border-radius: 10px;
+}
+.dashboard-page .diash-wrap-white .algo-wrap {
+    padding: 25px;
+    border-radius: 10px;
+}
+
+.dashboard-page .diash-wrap-white .algo-wrap h5 {
+    font-weight: 500;
+    color: #737373;
+}
+
+.dashboard-page .diash-wrap-white .algo-wrap form {
+    width: 55%;
+}
+.dashboard-page .diash-wrap-white .challenge-wrap form {
+    width: 70%;
+}
+
+.dashboard-page .diash-wrap-white .challenge-wrap form .form-group label {
+    font-weight: 400;
+    font-size: 14px;
+    color: #929292;
+    margin: 0 0 0.2rem 0;
+}
+
+.dashboard-page .diash-wrap-white .algo-wrap form .form-group label {
+    font-weight: 400;
+    font-size: 14px;
+    color: #929292;
+    margin: 0 0 0.2rem 0;
+}
+
+.dashboard-page .diash-wrap-white .challenge-wrap form .form-control {
+    border-radius: 10px;
+    box-shadow: none;
+    outline: none;
+	color: #929292;
+    font-size: 14px;
+}
+.dashboard-page .diash-wrap-white .algo-wrap form .form-control {
+    border-radius: 10px;
+    box-shadow: none;
+    outline: none;
+	color: #929292;
+    font-size: 14px;
+}
+.dashboard-page .diash-wrap-white .coupon-wrap {
+    padding: 25px;
+    border-radius: 10px;
+}
+.dashboard-page .diash-wrap-white .coupon-wrap form {
+    width: 100%;
+}
+
+.dashboard-page .diash-wrap-white .coupon-wrap form .form-group label {
+    font-weight: 400;
+    font-size: 14px;
+    color: #929292;
+    margin: 0 0 0.2rem 0;
+}
+.dashboard-page .diash-wrap-white .coupon-wrap form .form-control {
+    border-radius: 10px;
+    box-shadow: none;
+    outline: none;
+	color: #929292;
+    font-size: 14px;
+}
+.dashboard-page .diash-wrap-white .coupon-wrap form  .btn {
+    margin: 0;
+}
+.dashboard-page .diash-wrap-white .coupon-wrap form .btn {
+    background: transparent;
+    box-shadow: none;
+    color: #00b6ad;
+    border: 1px solid #00b6ad;
+    font-weight: 500;
+    border-radius: 8px;
+    padding: 9px 60px;
+    text-transform: capitalize;
+    font-size: 15px;
+    width: 100%;
+    margin: 0.3rem 0 0 0;
+}
+.dashboard-page .diash-wrap-white .coupon-wrap .link.edit{
+	background: transparent;
+    border: none;
+    font-size: 17px;
+    box-shadow: none;
+    cursor: pointer;
+    outline: none;
+	color: #6e6e6f;
+}
+.dashboard-page .diash-wrap-white .coupon-wrap form  .btn {
+    margin: 0;
+}
+.dashboard-page .diash-wrap-white .coupon-wrap form .btn {
+    background: transparent;
+    box-shadow: none;
+    color: #00b6ad;
+    border: 1px solid #00b6ad;
+    font-weight: 500;
+    border-radius: 8px;
+    padding: 9px 60px;
+    text-transform: capitalize;
+    font-size: 15px;
+    width: 100%;
+    margin: 0.3rem 0 0 0;
+}
+
+.dashboard-page .diash-wrap-white .challenge-wrap form  .btn {
+    margin: 0;
+}
+.dashboard-page .diash-wrap-white .challenge-wrap form .btn {
+    background: transparent;
+    box-shadow: none;
+    color: #00b6ad;
+    border: 1px solid #00b6ad;
+    font-weight: 500;
+    border-radius: 8px;
+    padding: 9px 60px;
+    text-transform: capitalize;
+    font-size: 15px;
+    width: 100%;
+    margin: 0.3rem 0 0 0;
+}
+.dashboard-page .diash-wrap-white .challenge-wrap .link.edit{
+	background: transparent;
+    border: none;
+    font-size: 17px;
+    box-shadow: none;
+    cursor: pointer;
+    outline: none;
+	color: #6e6e6f;
+}
+
+.dashboard-page .diash-wrap-white .algo-wrap form  .btn {
+    margin: 0;
+}
+.dashboard-page .diash-wrap-white .algo-wrap form .btn {
+    background: transparent;
+    box-shadow: none;
+    color: #00b6ad;
+    border: 1px solid #00b6ad;
+    font-weight: 500;
+    border-radius: 8px;
+    padding: 9px 60px;
+    text-transform: capitalize;
+    font-size: 15px;
+    width: 100%;
+    margin: 0.3rem 0 0 0;
+}
+.dashboard-page .diash-wrap-white .algo-wrap .link.edit{
+	background: transparent;
+    border: none;
+    font-size: 17px;
+    box-shadow: none;
+    cursor: pointer;
+    outline: none;
+	color: #6e6e6f;
+}
+.dashboard-page .admin-wrap .diash-wrap-white .dash-top .compose .link {
+    border: none;
+    background: transparent;
+    border-bottom: 1px solid;
+    color: #00b6ad;
+    padding: 0;
+    box-shadow: none;
+    cursor: pointer;
+    outline: none;
+}
+.composemessage
+{
+    margin: 5px 0 0 0;
+}
+.dashboard-page .admin-wrap .diash-wrap-white .dash-top .compose .link,.dashboard-page .admin-wrap .diash-wrap-white .dash-table .email .link {
+    border: none;
+    background: transparent;
+    border-bottom: 1px solid;
+    color: #00b6ad;
+    padding: 0;
+    box-shadow: none;
+    cursor: pointer;
+    outline: none;
+}
+
+.dashboard-page .admin-wrap .diash-wrap-white .dash-top .delete .link {
+    background: transparent;
+    border: none;
+    font-size: 17px;
+    box-shadow: none;
+    cursor: pointer;
+    color: #dd0000;
+    outline: none;
+}
+
+.dashboard-page .admin-wrap .diash-wrap-white .dash-table .email .select {
+    width: 20rem;
+}
+
+.dashboard-page .admin-wrap .diash-wrap-white .dash-table .email * {
+    margin-bottom: 0;
+}
+.dashboard-page .diash-wrap-white .algo-wrap button.link {
+    background: transparent;
+    border: 1px solid;
+    font-weight: 500;
+    border-radius: 20px;
+    padding: 11px 60px;
+    text-transform: capitalize;
+    font-size: 15px;
+    box-shadow: none;
+    cursor: pointer;
+    outline: none;
+}
+.dashboard-page .diash-wrap-white .algo-wrap button.link.change {
+    color: #00b6ad;
+}
+
+.dashboard-page .diash-wrap-white .algo-wrap button.link.delete {
+    color: #dd0000;
+    margin: 0;
+}
+.dashboard-page .diash-wrap-white .algo-wrap h5.admin-head {
+    margin: 0;
+    line-height: 43px;
+}
+.maiilModal .modal-body form.form-login .form-group .form-control {
+    border-radius: 0;
+    border: none;
+    border-bottom: 1px solid #dedede !important;
+    padding: 0.375rem 1.75rem 0.375rem 0.75rem;
+}
+form.form-login .btn {
+    border: 1px solid #00b6ad;
+    background: transparent !important;
+    color: #00b6ad !important;
+    box-shadow: none;
+    font-size: 16px;
+    text-transform: capitalize;
+    border-radius: 7px;
+}
+form.form-login .btn:focus,form.form-login .btn:active {
+    background: transparent !important;
+}
+
+form.form-login .form-group::after {
+    content: '';
+    padding: 10px 16px;
+    position: absolute;
+    right: 0;
+    background-repeat: no-repeat !important;
+    top: 9px;
+    background-size: contain !important;
+    background-position: right !important;
+}
+
+form.form-login .form-group.email::after {
+    background: url(../images/email.png);
+}
+form.form-login .form-group.password::after {
+    background: url(../images/password.png);
+}
+form.form-login .form-group {
+    position: relative;
+}
+
+.dashboard-page .admin-wrap .diash-wrap-white .dash-table .table.user .pending {
+    color: #dd0000;
+    font-weight: 400;
+}
+
+.dashboard-page .admin-wrap .diash-wrap-white .dash-table .table.user .done {
+    color: #02c018;
+    font-weight: 400;
+}
+.dashboard-page .admin-wrap .diash-wrap-white .page-title .link.edit,.dashboard-page .admin-wrap .diash-wrap-white .content-wrap .link.edit{
+    background: transparent;
+    border: none;
+    font-size: 17px;
+    box-shadow: none;
+    cursor: pointer;
+    outline: none;
+    color: #6e6e6f;
+}
+.dashboard-page .admin-wrap .diash-wrap-white  .link.edit{
+	background: transparent;
+    border: none;
+    font-size: 14px;
+    box-shadow: none;
+    cursor: pointer;
+    outline: none;
+    color: #6e6e6f;
+}
+.dashboard-page .admin-wrap .diash-wrap-white .content-wrap {
+    padding: 30px;
+    border-radius: 10px;
+}
+
+.dashboard-page .admin-wrap .diash-wrap-white .content-wrap h3 {
+    font-weight: 500;
+    font-size: 18px;
+    color: #505050;
+    margin: 0 0 01rem 0;
+}
+
+.dashboard-page .admin-wrap .diash-wrap-white .content-wrap p {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 19px;
+}
+
+.dashboard-page .admin-wrap .diash-wrap-white .content-wrap p:last-child {
+    margin: 0;
+}
+.dashboard-page .admin-wrap .diash-wrap-white .chat-wrap .top-chat {
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.dashboard-page .admin-wrap .diash-wrap-white .chat-wrap .top-chat .done {
+    color: #00b6ad;
+}
+
+.dashboard-page .admin-wrap .diash-wrap-white .chat-wrap .top-chat .link {
+    border-bottom: 2px  solid;
+}
+
+.dashboard-page .admin-wrap .diash-wrap-white .chat-wrap .top-chat .delete {
+    color: #dd0000;
+}
+
+.dashboard-page .admin-wrap .diash-wrap-white .chat-wrap .ticket-text h3 {
+    font-size: 17px;
+    font-weight: 500;
+    color: #5a5a5a;
+}
+
+.dashboard-page .admin-wrap .diash-wrap-white .chat-wrap .ticket-text p {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 18px;
+}
+
+.dashboard-page .admin-wrap .trending-list .text-wrap .data-row {
+    border-bottom: 1px solid #929292;
+	color: #929292;
+}
+.dashboard-page .admin-wrap .trending-list .text-wrap .data-row:last-of-type {
+    border: none;
+}
+.dashboard-page .admin-wrap .dash-top .search::after {
+    content: '';
+    padding: 10px 16px;
+    position: absolute;
+    right: 0;
+    background-repeat: no-repeat !important;
+    top: 9px;
+    background-size: contain !important;
+    background-position: left;
+    background-image: url(../images/search.png);
+}
+.dashboard-page .admin-wrap .diash-wrap-white .dash-table th {
+    font-weight: 500;
+    font-size: 17px;
+    color: #676767;
+    border-bottom: 2px solid #929292;
+}
+.dashboard-page .admin-wrap .diash-wrap-white .dash-table tbody td {
+    margin: 0;
+    font-size: 14px;
+    color: #929292;
+    font-weight: 500;
+}
+.dashboard-page .admin-wrap .diash-wrap-white .link.edit::after {
+    display: none;
+}
+.dashboard-page .admin-wrap .dash-top h3.small-head small {
+    font-weight: inherit;
+    font-size: 68%;
+}
+.dashboard-page .admin-wrap .diash-wrap-white .profile-name.dp .img-wrap {
+    padding: 0;
+    width: 100px;
+    height: 100px;
+    float: left;
+}
+.dashboard-page .admin-wrap .diash-wrap-white .coupon .coupon-wrap h4 span.bluee {
+    color: #00b6ad;
+    font-weight: 400;
+}
+
+.dashboard-page .admin-wrap .diash-wrap-white .coupon .coupon-wrap .coupon-wrap-box .status.reedmed {
+    color: #01a753;
+}
+.dashboard-page .admin-wrap .diash-wrap-white .target span {
+    font-size: 13px;
+}
+.modal-dialog .modal-content {
+    border-radius: 10px;
+}
+.modal-dialog {
+    max-width: 650px;
+}
+.dashboard-page .admin-wrap .diash-wrap-white .individual-merchant .img-wrap {
+    box-shadow: 0 0px 20px rgba(0,0,0,.32);
+}
+.dashboard-page .admin-wrap .diash-wrap-white .individual-mt .link.create,.dashboard-page .admin-wrap .diash-wrap-white .admin-user .link.create {
+    font-weight: 500;
+}
+.dashboard-page .admin-wrap .dash-top h3.small-head span.ble {
+    color: #00b6ad;
+}
+.dashboard-page .diash-wrap-white .algo-wrap.admin-user-i button.link {
+    border-radius: 7px;
+    width: 178px;
+    padding: 8px 0;
+    margin: 0 0  0 15px;
+}
+.dashboard-page .diash-wrap-white .algo-wrap.admin-user-i {
+    padding: 20px;
+}
+#addadmin .modal-dialog,#changepass .modal-dialog{
+    max-width: 440px;
+}
+.dashboard-page .diash-wrap-white .algo-wrap.admin-user-i .admin-head {
+    padding-left: 20px;
+}
+.dashboard-page .admin-wrap .diash-wrap-white .dash-top .compose .link, .dashboard-page .admin-wrap .diash-wrap-white .dash-table .email .link {
+    font-weight: 500;
+    font-size: 16px;
+}
+
+.dashboard-page .admin-wrap .diash-wrap-white.content-pg {
+    padding: 30px 40px;
+}
+
+.viewcustom
+{
+    padding: 1% 0 0 5%;
+    font-size: 14px;
+    color: #929292;
+}
+
+.pagedropdown {
+    text-transform: none;
+    padding: 0 3% 0 2%;
+    margin: 0 0 0 7%;
+    height: 27px;
+    width: 60px;
+    text-align: center;
+    border: 1px solid #6767;
+}
+.checkcustom
+{
+margin-right: 3.75rem !important;
+}
+.custom-control {
+       min-height: 0.85rem;
+
+}
+.done{
+	color: #00b6ad;
+    border: none;
+    background: transparent;
+    border-bottom: 1px solid;    
+    padding: 0;
+    box-shadow: none;
+    cursor: pointer;
+    outline: none;
+    font-weight: 500;
+}
+.delete{
+	border: none;
+    background: transparent;
+     color: #d40000;
+    padding: 0;
+    box-shadow: none;
+    cursor: pointer;
+    outline: none;
+    font-weight: 500;	
+}
+.dashboard-page .menu-wrap .nav .nav-item .submenu {
+    padding: 0 0 0 3.8rem;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.dashboard-page .menu-wrap .nav .nav-item .submenu a {
+    display: inline-block;
+    width: 100%;
+    color: #6d6a6a;
+	transition:.3s;
+}
+.dashboard-page .menu-wrap .nav .nav-item .submenu a:hover,.dashboard-page .menu-wrap .nav .nav-item .submenu a.active{
+	color: #00b6ad;
+}
+div#mceu_31 {
+    display: none;
 }

@@ -85,7 +85,7 @@ class ForgotPasswordController extends Controller
             $mailData = str_replace("{last_name}", $last_name, $mailData);
             $content = str_replace("{button}", '  <a href="' . $baseUrl . '" type="button" class="btn btn-primary">Click Here</a>', $mailData);
 
-            Mail::to('gurinder.singh@triusmail.com')->send(new \App\Mail\ForgetMail($content));
+            Mail::to($userData->email)->send(new \App\Mail\ForgetMail($content));
             Session::flash('success', Config::get('message.options.MAIL_LINK'));
 
             return Redirect::back();

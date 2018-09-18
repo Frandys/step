@@ -46,6 +46,30 @@
     margin: 0 0 0.7rem 0;
 }
 
+
+.dashboard-page .diash-wrap-white .algo-wrap form {
+    width: 100%;
+}
+.dashboard-page .diash-wrap-white .algo-wrap button.link {
+    margin: 0 0 0.7rem 0;
+}
+.dashboard-page .admin-wrap .diash-wrap-white .img-wrap {
+    margin: 0 auto 1rem;
+}
+.maiilModal .modal-body .text-wrap.add-merchant .img-wrap,.dashboard-page .admin-wrap .diash-wrap-white .img-wrap {
+    height: 120px;
+    width: 120px;
+    margin: 0 auto 1rem;
+}
+.diash-wrap-white .individual-merchant .text-wrap .top button img, .dashboard-page .diash-wrap-white .algo-wrap .link.edit img, .dashboard-page .admin-wrap .diash-wrap-white .dash-top .delete .link img, .dashboard-page .admin-wrap .diash-wrap-white .page-title .link.edit img, .dashboard-page .admin-wrap .diash-wrap-white .content-wrap .link.edit img {
+    width: 15px;
+    margin: 0 5px 0 0;
+}
+.dashboard-page .admin-wrap .diash-wrap-white .text-wrap p.data img {
+    width: 18px;
+    margin: 0 7px 0 0;
+}
+
 }
 /*********Small***************/
 /*********Mobiles*************/
